@@ -16,3 +16,4 @@ for more about ignoring files.
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.eslintcache
