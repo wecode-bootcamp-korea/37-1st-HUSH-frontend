@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "email": "eogh773@naver.com",
+    "password": "Eogh12!",
+    "address": "서울특별시 동작구 상도동 356-6 1층 101호",
+    "point": "100,000",
+    "create_at": "2022년 9월 19일 19시 44분",
+    "update_at": "미사용 데이터"
+  },
+  {
+    "id": 2,
+    "email": "rubi0023@gamil.com",
+    "password": "Rubi3001!",
+    "address": "서울특별시 강남구 테혜란로 427 10층",
+    "point": "100,000",
+    "create_at": "2022년 9월 17일 05시 27분",
+    "update_at": "미사용 데이터"
+  },
+  {
+    "id": 3,
+    "email": "hyerin@daum.net",
+    "password": "Hyerin22@",
+    "address": "제주특별자치도 한경면 용수리 4379-2",
+    "point": "100,000",
+    "create_at": "2022년 8월 30일 12시 04분",
+    "update_at": "미사용 데이터"
+  },
+  {
+    "id": 4,
+    "email": "suckmoon@daum.net",
+    "password": "Suckmmon262!",
+    "address": "부산광역시 연제구 연산동 372-8",
+    "point": "100,000",
+    "create_at": "2022년 9월 09일 09시 22분",
+    "update_at": "미사용 데이터"
+  }
+]
