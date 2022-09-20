@@ -1,0 +1,133 @@
+@import '../../styles/variables.scss';
+
+.detail {
+  .detail-nav {
+    border: 1px solid red;
+    height: 100px;
+  }
+
+  .detail-pic {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .products-tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+    padding-left: 300px;
+    border-bottom: 3px solid rgb(242, 238, 238);
+  }
+
+  .product-tab-name {
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+    margin-inline: 30px;
+    font-size: 30px;
+    color: grey;
+    // border-bottom: 3px solid red;
+  }
+
+  .product-tab-name:hover {
+    color: #000;
+  }
+
+  .product-tab-name::after {
+    display: block;
+    content: '';
+    border-bottom: 5px solid #000;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  .product-tab-name:hover:after {
+    transform: scaleX(1.7);
+  }
+
+  .detail-product-outer-box {
+    @include flexSort(space-evenly, center);
+    // border: 1px solid blue;
+    margin-top: 30px;
+  }
+
+  .detail-product-box {
+    // border: 1px solid red;
+    margin-inline: 10px;
+
+    .detail-product-inner-box {
+      @include flexSort(center, flex-top);
+      position: relative;
+      width: 288px;
+      height: 440px;
+      // border: 1px solid blue;
+      background-color: rgb(242, 238, 238);
+
+      &:after {
+        content: '';
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      &:hover:after {
+        display: block;
+      }
+
+      .detail-product-image {
+        width: 256px;
+        height: 256px;
+        margin-top: 20px;
+
+        // border: 1px solid red;
+      }
+
+      .detail-product-info {
+        text-align: center;
+      }
+
+      .detail-product-info p {
+        padding-top: 20px;
+      }
+
+      .detail-product-info p:first-child {
+        font-size: 27px;
+      }
+
+      .detail-product-info p:nth-last-child(2) {
+        font-size: 23px;
+      }
+
+      .detail-product-info p:last-child {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.detail-footer-button {
+  @include flexSort(center, center);
+  // border: 1px solid red;
+  height: 180px;
+}
+
+.detail-footer-button button {
+  margin-inline: 10px;
+}

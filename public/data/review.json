@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "email": "eogh773@naver.com",
+    "name": "미니쉘",
+    "content": "달달합니다...",
+    "ceate_at": "2022년 09월 19일"
+  },
+  {
+    "id": 2,
+    "email": "rubi0023@gamil.com",
+    "name": "미니쉘",
+    "content": "저는 좀 별로",
+    "ceate_at": "2022년 09월 17일"
+  },
+  {
+    "id": 3,
+    "email": "hyerin@daum.net",
+    "name": "미니쉘",
+    "content": "갈비찜 만드는 방법!",
+    "ceate_at": "2022년 09월 16일"
+  },
+  {
+    "id": 4,
+    "email": "suckmoon@daum.net",
+    "name": "미니쉘",
+    "content": "왜 아몬드맛이 아니죠?",
+    "ceate_at": "2022년 09월 18일"
+  }
+]
