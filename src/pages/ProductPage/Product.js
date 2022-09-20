@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function Product() {
-  return <div></div>;
+  return <div>hihi</div>;
 }
 
 export default Product;

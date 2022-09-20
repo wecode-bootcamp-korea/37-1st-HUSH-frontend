@@ -1,0 +1,157 @@
+.footerWrap {
+  position: fixed;
+  width: 100%;
+  height: 645px;
+  bottom: -10px;
+
+  .footerAside {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .footerMain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 480px;
+    background: rgb(0, 0, 0);
+
+    .footerLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #000;
+      width: 450px;
+      height: 352px;
+      margin-left: 100px;
+
+      .footerInput {
+        display: flex;
+        align-items: center;
+        input {
+          color: white;
+          width: 300px;
+          height: 30px;
+          background: #222222;
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+
+        button {
+          height: 30px;
+          color: white;
+          background: #222222;
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+      }
+      p,
+      strong,
+      span,
+      a {
+        color: white;
+      }
+
+      p {
+        display: block;
+        font-size: 15px;
+
+        span {
+          margin-left: 5px;
+        }
+      }
+
+      .csCenter {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        strong {
+          width: 180px;
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+
+        p {
+          margin-bottom: 15px;
+          width: 180px;
+          font-size: 18px;
+        }
+
+        span {
+          margin-bottom: 3px;
+          width: 300px;
+        }
+      }
+
+      .snsBox {
+        display: flex;
+
+        img {
+          position: relative;
+          left: -10px;
+          background: #b8b7b7;
+          border-radius: 50%;
+          border: solid 2px #22222200;
+          width: 35px;
+          height: 35px;
+          margin-left: 10px;
+        }
+      }
+    }
+    .footerRight {
+      width: 500px;
+      height: 345px;
+
+      .navNotice {
+        a {
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: 700;
+          color: white;
+        }
+
+        p {
+          font-size: 15px;
+          margin-top: 5px;
+          color: white;
+        }
+
+        span {
+          color: aquamarine;
+        }
+      }
+
+      .navFooterMenu {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        strong {
+          width: 180px;
+          font-size: 20px;
+          color: white;
+        }
+      }
+
+      p {
+        margin-top: 8px;
+        color: white;
+      }
+      section {
+        margin-top: 20px;
+        color: white;
+      }
+    }
+  }
+}

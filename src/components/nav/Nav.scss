@@ -1,0 +1,81 @@
+.navWrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 128px;
+  border-bottom: 1px solid gray;
+
+  .navAside {
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+
+    p {
+      font-size: 15px;
+      color: white;
+    }
+  }
+  .navBody {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 96px;
+    background: white;
+    border-bottom: 1px solid gray;
+
+    .navBodyLeft {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .navLogo {
+        font-size: 35px;
+        font-weight: 900;
+        margin-right: 50px;
+      }
+
+      .navMenu {
+        display: flex;
+        justify-content: space-around;
+        width: 400px;
+
+        li {
+          list-style: none;
+
+          a {
+            color: rgb(90, 90, 85);
+            font-size: 15px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .navBodyRight {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 400px;
+
+      .pointInfo {
+        font-size: 30px;
+        text-decoration: none;
+        color: gray;
+        margin-right: 100px;
+
+        span {
+          font-size: 20px;
+          color: black;
+          margin-left: 5px;
+        }
+      }
+
+      img {
+        width: 25px;
+      }
+    }
+  }
+}
