@@ -1,97 +1,89 @@
 [
   {
     "id": 1,
-    "name": "케이크",
+    "name": "가니",
     "price": "3000",
     "count": "1",
-    "img_id": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "케이크",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
     "create_at": "2022년 06월 07일",
-    "update_at": "미사용 데이터",
-
-    "name1": "cookie",
-    "price1": "2500",
-    "count1": "1",
-    "category_id1": "케이크",
-    "create_at1": "2022년 06월 07일",
-    "update_at1": "미사용 데이터",
-
-    "name2": "초코칩",
-    "price2": "2500",
-    "count2": "2",
-    "category_id2": "케이크",
-    "create_at2": "2022년 06월 07일",
-    "update_at2": "미사용 데이터",
-
-    "name3": "화이트 초코칩",
-    "price3": "3400",
-    "count3": "1",
-    "category_id3": "케이크",
-    "create_at3": "2022년 06월 07일",
-    "update_at3": "미사용 데이터"
+    "update_at": "미사용 데이터"
   },
 
   {
     "id": 2,
-    "name": "퍼지",
-    "price": "3000",
+    "name": "미니쉘",
+    "price": "2500",
     "count": "1",
-    "img_id": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "케이크",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
     "create_at": "2022년 06월 07일",
-    "update_at": "미사용 데이터",
-
-    "name1": "쿠쿠이이",
-    "price1": "2500",
-    "count1": "1",
-    "category_id1": "케이크",
-    "create_at1": "2022년 06월 07일",
-    "update_at1": "미사용 데이터",
-
-    "name2": "과자",
-    "price2": "2500",
-    "count2": "2",
-    "category_id2": "케이크",
-    "create_at2": "2022년 06월 07일",
-    "update_at2": "미사용 데이터",
-
-    "name3": "333",
-    "price3": "3400",
-    "count3": "1",
-    "category_id3": "케이크",
-    "create_at3": "2022년 06월 07일",
-    "update_at3": "미사용 데이터"
+    "update_at": "미사용 데이터"
   },
 
   {
     "id": 3,
-    "name": "네이ㅇㄹㅇㄴ잗",
-    "price": "3000",
-    "count": "1",
-    "img_id": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "케이크",
+    "name": "카카오99%",
+    "price": "2500",
+    "count": "2",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
     "create_at": "2022년 06월 07일",
-    "update_at": "미사용 데이터",
+    "update_at": "미사용 데이터"
+  },
 
-    "name1": "ㄱㄴㅇㅇㄷ",
-    "price1": "2500",
-    "count1": "1",
-    "category_id1": "케이크",
-    "create_at1": "2022년 06월 07일",
-    "update_at1": "미사용 데이터",
+  {
+    "id": 4,
+    "name": "석기시대",
+    "price": "3400",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "update_at": "미사용 데이터"
+  },
 
-    "name2": "asㄴㄴdf",
-    "price2": "2500",
-    "count2": "2",
-    "category_id2": "케이크",
-    "create_at2": "2022년 06월 07일",
-    "update_at2": "미사용 데이터",
+  {
+    "id": 5,
+    "name": "석기시대",
+    "price": "3400",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "update_at": "미사용 데이터"
+  },
 
-    "name3": "sdfㄴㄴw",
-    "price3": "3400",
-    "count3": "1",
-    "category_id3": "케이크",
-    "create_at3": "2022년 06월 07일",
-    "update_at3": "미사용 데이터"
+  {
+    "id": 6,
+    "name": "석기시대",
+    "price": "3400",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "update_at": "미사용 데이터"
+  },
+
+  {
+    "id": 7,
+    "name": "석기시대",
+    "price": "3400",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "update_at": "미사용 데이터"
+  },
+
+  {
+    "id": 8,
+    "name": "석기시대",
+    "price": "3400",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "update_at": "미사용 데이터"
   }
 ]
