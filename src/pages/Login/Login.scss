@@ -72,16 +72,16 @@ input[id='saveEmail']:checked + label {
   border: 1px solid #b6b6b6;
   background-color: #222;
   font-size: 16px;
+  font-weight: bold;
   color: white;
-  box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.4);
 }
 
 .login-btn:hover {
   cursor: pointer;
-  border: 1px solid #222;
-  background-color: rgb(252, 252, 252);
+  border: 1px solid #1ca14c;
+  background-color: #1ca14c;
   font-weight: bold;
-  color: #222;
+  color: white;
 }
 
 .login-link-join {
