@@ -35,7 +35,6 @@ function Login() {
         alert(error);
       })
       .then(data => {
-        console.log(data);
         if (data.message === 'EXCESS_SUCCESS') {
           localStorage.setItem('accessToken', data.accessToken);
           alert('로그인 성공');
@@ -78,7 +77,6 @@ function Login() {
         </form>
         <p className="login-link-join">회원가입</p>
       </div>
-      <div></div>
     </>
   );
 }
