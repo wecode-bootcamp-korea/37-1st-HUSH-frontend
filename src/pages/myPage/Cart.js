@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartProduct from '../myPage/CartProduct.js';
 import '../myPage/Cart.scss';
 
 function Cart() {
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/cart.json')
+      .then(res => res.json())
+      .then(data => setProductData(data));
+  }, []);
+
   return (
     <>
       <div className="cart">
@@ -26,8 +34,16 @@ function Cart() {
             </tr>
           </thead>
           <tbody className="cart-product-body">
-            <CartProduct />
-            <CartProduct />
+            {productData.map(product => (
+              <CartProduct
+                key={product.id}
+                img={product.img_id}
+                name={product.name}
+                category={product.category_id}
+                quantity={product.count}
+                price={product.price}
+              />
+            ))}
           </tbody>
         </table>
         <button className="cart-delete-btn">선택 삭제</button>
@@ -54,6 +70,7 @@ function Cart() {
           <button className="cart-pay-btn">주문하기</button>
         </div>
       </div>
+      <div></div>
     </>
   );
 }
