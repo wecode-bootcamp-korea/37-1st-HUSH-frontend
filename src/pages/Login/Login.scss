@@ -43,8 +43,8 @@ input[id='saveEmail'] + label:hover {
   cursor: pointer;
 }
 input[id='saveEmail']:checked + label {
-  background: url('../../asset/images/check.png') #222 no-repeat center/10px
-    10px;
+  background: url('../../asset/images/login_check.png') #222 no-repeat
+    center/10px 10px;
 }
 
 .login-checkbox-label {
