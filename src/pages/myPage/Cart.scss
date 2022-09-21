@@ -85,7 +85,7 @@
       margin: 0 20px 0 0;
       width: 12px;
       height: 12px;
-      background: url('/asset/images/minus.png');
+      background: url('/asset/images/cart_minus.png');
       background-size: 12px;
       background-color: transparent;
       border: none;
@@ -95,18 +95,18 @@
       margin: 0 0 0 20px;
       width: 12px;
       height: 12px;
-      background-image: url('/asset/images/add.png');
+      background-image: url('/asset/images/cart_add.png');
       background-size: 12px;
       background-color: transparent;
       border: none;
     }
 
     .quantity-minus-btn:hover {
-      background-image: url('/asset/images/minus_hover.png');
+      background-image: url('/asset/images/cart_minus_hover.png');
       cursor: pointer;
     }
     .quantity-plus-btn:hover {
-      background-image: url('/asset/images/add_hover.png');
+      background-image: url('/asset/images/cart_add_hover.png');
       cursor: pointer;
     }
   }
