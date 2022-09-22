@@ -23,7 +23,7 @@ function Slider({ sliders, slideRef, count, handleSlider }) {
           </div>
         ))}
       </div>
-      <div className="main-pagination">
+      {/* <div className="main-pagination">
         {sliders.map(btn => (
           <button
             type="button"
@@ -34,7 +34,7 @@ function Slider({ sliders, slideRef, count, handleSlider }) {
             {btn.text}
           </button>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
