@@ -1,0 +1,117 @@
+.nav-Wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 128px;
+  border-bottom: 1px solid gray;
+
+  .nav-Aside {
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+
+    p {
+      font-size: 15px;
+      color: white;
+    }
+  }
+  .nav-Body {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 96px;
+    background: white;
+    border-bottom: 1px solid gray;
+
+    .nav-Body-Left {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .nav-Logo {
+        font-size: 35px;
+        font-weight: 900;
+        margin-right: 50px;
+      }
+
+      .nav-Menu {
+        display: flex;
+        justify-content: space-around;
+        width: 400px;
+
+        li {
+          list-style: none;
+
+          a {
+            color: rgb(90, 90, 85);
+            font-size: 15px;
+            text-decoration: none;
+          }
+
+          a:hover {
+            border-bottom: 1px solid gray;
+          }
+        }
+      }
+    }
+    .nav-Body-Right {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 400px;
+
+      .point-Info {
+        font-size: 30px;
+        text-decoration: none;
+        color: gray;
+        margin-right: 100px;
+
+        span {
+          font-size: 20px;
+          color: black;
+          margin-left: 5px;
+        }
+      }
+
+      img {
+        width: 25px;
+        margin-left: 30px;
+      }
+
+      .login-Page-Btn {
+        position: relative;
+      }
+      .my-Page-Modal {
+        position: absolute;
+        width: 200px;
+
+        ul {
+          position: relative;
+          left: -40px;
+          background: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          border: 1px solid rgba(213, 212, 212, 0.323);
+        }
+
+        li {
+          margin: 7px 0;
+          display: flex;
+          align-items: center;
+        }
+
+        a {
+          font-size: 14px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
