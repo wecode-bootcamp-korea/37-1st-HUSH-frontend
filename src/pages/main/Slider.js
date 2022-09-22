@@ -2,10 +2,10 @@ import React from 'react';
 import './Slider.scss';
 
 function Slider({ sliders, slideRef, count, handleSlider }) {
-  const test = id => {
-    console.log('btn', id);
-    console.log('count', count);
-  };
+  // const test = id => {
+  //   console.log('btn', id);
+  //   console.log('count', count);
+  // };
 
   return (
     <>

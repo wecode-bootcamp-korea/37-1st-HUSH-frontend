@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Main.scss';
 import Review from './Review';
 import Slider from './Slider';
+import Banner from './Banner';
 
 function Main() {
   const slideRef = useRef();
@@ -33,7 +34,7 @@ function Main() {
   });
 
   const handleSlider = count => {
-    console.log(count);
+    //console.log(count);
 
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
 
@@ -56,6 +57,7 @@ function Main() {
         />
       </div>
       <Review />
+      <Banner />
     </div>
   );
 }
