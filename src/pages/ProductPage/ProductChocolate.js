@@ -1,12 +1,17 @@
 import React from 'react';
+import './ProductItem.scss';
 
 const ProductChocolate = ({ product }) => {
-  const { name, img_id, price, category_id } = product;
+  const { name, thumbnail_image_url, price, category_id } = product;
 
   return (
     <div className="product-product-inner-box">
       <div className="thumb">
-        <img className="product-product-image" src={img_id} alt="상품이미지" />
+        <img
+          className="product-product-image"
+          src={thumbnail_image_url}
+          alt="상품이미지"
+        />
       </div>
       <div className="product-product-info">
         <p className="bold">{name}</p>

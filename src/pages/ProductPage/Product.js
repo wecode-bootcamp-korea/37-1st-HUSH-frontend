@@ -60,7 +60,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(0)}
         >
           <li className="product-tab-name">전체</li>
@@ -82,7 +82,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(1)}
         >
           <li className="product-tab-name">초콜릿</li>
@@ -104,7 +104,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(2)}
         >
           <li className="product-tab-name">젤리</li>
@@ -126,7 +126,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(3)}
         >
           <li className="product-tab-name">캔디</li>
@@ -148,7 +148,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(4)}
         >
           <li className="product-tab-name">쿠키</li>
@@ -170,7 +170,7 @@ function Product() {
     {
       tabTitle: (
         <ul
-          className={`${'tabs'} ${activeIndex === 0 ? 'is-active' : ''}`}
+          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
           onClick={() => tabClickHandler(5)}
         >
           <li className="product-tab-name">케이크</li>
@@ -194,32 +194,35 @@ function Product() {
     setActiveIndex(index);
   };
 
+  const showDropDown = () => {
+    setDropDownMenu(!dropdownMenu);
+  };
+
   const filterItemIncrease = event => {
     setFilter(event.target.value);
-    const priceSorting = [...chocolates];
+    const priceSorting = [...all];
     const priceCompare = key => (a, b) => {
       // return a[key] > b[key] ? 1 : a[key] > b[key] ? -1 : 0;
       return a[key] - b[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setChocolate(priceSorting);
-    console.log('클릭');
+    setAll(priceSorting);
+    // console.log('클릭');
   };
 
   const filterItemDecrease = event => {
     setFilter(event.target.value);
-    const priceSorting = [...chocolates];
+    const priceSorting = [...all];
     const priceCompare = key => (a, b) => {
       // return a[key] > b[key] ? -1 : a[key] < b[key] ? -1 : 0;
       return b[key] - a[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setChocolate(priceSorting);
-    console.log('클릭');
+    setAll(priceSorting);
+    // console.log('클릭');
   };
 
   // fetch
-
   return (
     <section className="product">
       <div className="product-nav">네브바</div>
@@ -241,11 +244,8 @@ function Product() {
       {/* 필터링 드랍다운 */}
       <div className="product-tog-cont">
         <div className="product-toggle">
-          <button
-            className="product-btn"
-            onClick={e => setDropDownMenu(!dropdownMenu)}
-          >
-            {dropdownMenu ? '필터링' : '필터링'}
+          <button className="product-btn" onClick={showDropDown}>
+            필터링
           </button>
           <div>
             <Dropdown visibility={dropdownMenu}>
@@ -262,14 +262,6 @@ function Product() {
                   onClick={filterItemDecrease}
                 >
                   <li>높은가격순</li>
-                </button>
-
-                <button className="product-dropdown-btn">
-                  <li>인기순</li>
-                </button>
-
-                <button className="product-dropdown-btn">
-                  <li>추천순</li>
                 </button>
               </ul>
             </Dropdown>
