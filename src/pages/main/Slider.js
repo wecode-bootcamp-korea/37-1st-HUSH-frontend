@@ -2,6 +2,11 @@ import React from 'react';
 import './Slider.scss';
 
 function Slider({ sliders, slideRef, count, handleSlider }) {
+  const test = id => {
+    console.log('btn', id);
+    console.log('count', count);
+  };
+
   return (
     <>
       <div ref={slideRef} className="main-slider-wrap">
@@ -23,9 +28,7 @@ function Slider({ sliders, slideRef, count, handleSlider }) {
           <button
             type="button"
             key={btn.id}
-            onClick={() => {
-              handleSlider(btn.id);
-            }}
+            onClick={() => test(btn.id)}
             className={`${'btn'} ${btn.id === count ? 'active' : ''}`}
           >
             {btn.text}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Main.scss';
+import Review from './Review';
 import Slider from './Slider';
 
 function Main() {
@@ -39,7 +40,8 @@ function Main() {
     if (count >= sliders.length) {
       slideRef.current.style.transform = 'translateX(0)';
     } else {
-      slideRef.current.style.transform = `translateX(-${1224 * count + 50}px)`;
+      // slideRef.current.style.transform = `translateX(-${1224 * count + 50}px)`;
+      slideRef.current.style.transform = `translateX(-${count}00%)`;
     }
   };
 
@@ -53,6 +55,7 @@ function Main() {
           handleSlider={handleSlider}
         />
       </div>
+      <Review />
     </div>
   );
 }

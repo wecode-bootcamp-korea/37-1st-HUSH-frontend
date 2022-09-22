@@ -2,7 +2,7 @@
   "extends": ["react-app", "plugin:prettier/recommended"],
   "rules": {
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "indent": ["error", 2],
+    "indent": "off",
     "no-var": "warn",
     "no-multiple-empty-lines": "warn",
     "no-nested-ternary": "warn",
