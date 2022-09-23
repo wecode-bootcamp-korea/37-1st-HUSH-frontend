@@ -6,11 +6,11 @@ function Review() {
   const [reviews, setReviews] = useState([]);
 
   const animatedItem = {
-    0: useScrollFadeIn('up', 1, 0),
-    1: useScrollFadeIn('up', 1, 0.2),
-    2: useScrollFadeIn('up', 1, 0.3),
-    3: useScrollFadeIn('up', 1, 0.4),
-    4: useScrollFadeIn('up', 1, 0.5),
+    0: useScrollFadeIn('right', 1, 0),
+    1: useScrollFadeIn('right', 1, 0.2),
+    2: useScrollFadeIn('down', 1, 0.3),
+    3: useScrollFadeIn('left', 1, 0.4),
+    4: useScrollFadeIn('left', 1, 0.5),
   };
 
   useEffect(() => {

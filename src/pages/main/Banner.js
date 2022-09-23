@@ -4,8 +4,8 @@ import './Banner.scss';
 
 function Banner() {
   const animatedItem = {
-    0: useScrollFadeIn('up', 1, 0.6),
-    1: useScrollFadeIn('up', 1, 0.7),
+    0: useScrollFadeIn('up', 1, 1.5),
+    1: useScrollFadeIn('up', 1, 0),
   };
 
   return (
