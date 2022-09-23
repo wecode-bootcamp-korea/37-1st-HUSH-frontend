@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Join/Join.scss';
+import './Join.scss';
 
 function Join() {
   const navigate = useNavigate();
@@ -20,6 +20,12 @@ function Join() {
 
   const [isCheckEmail, setIsCheckEmail] = useState(false);
 
+  const pwValidation = /(?=.*[a-zA-ZS])(?=.*?[#?!@$%^&*-]).{8,}/;
+
+  let handleValidateDisplay = pwValidation.test(password)
+    ? { display: 'none' }
+    : { display: 'inline-block' };
+
   const checkDuplicate = e => {
     e.preventDefault();
 
@@ -33,7 +39,7 @@ function Join() {
       }),
     })
       .then(response => {
-        if (response.ok === true) {
+        if (response.ok) {
           return response.json();
         }
         throw new Error('에러 발생!');
@@ -42,7 +48,7 @@ function Join() {
         alert(error);
       })
       .then(data => {
-        if (data.message === 'EXCESS_SUCCESS') {
+        if (data.message === 'ACCESS_SUCCESS') {
           alert('사용 가능한 이메일입니다.');
           setIsCheckEmail(true);
         } else if (data.message === 'KEY_ALREADY_EXISTS') {
@@ -100,46 +106,55 @@ function Join() {
         <div className="join-content-head">
           <h3 className="join-content-title">기본정보</h3>
           <p className="join-caution-text">
-            <span className="join-caution-symbol">*</span>표시는 반드시
-            입력하셔야 하는 항목입니다.
+            <span className="caution-symbol">*</span>표시는 반드시 입력하셔야
+            하는 항목입니다.
           </p>
         </div>
-        <form
-          className="join-form"
-          onChange={inputChange}
-          onSubmit={submitForm}
-        >
-          <div className="join-form-email">
-            <label>
-              <span className="join-caution-symbol">*</span>이메일
+        <form onChange={inputChange} onSubmit={submitForm}>
+          <div className="join-form">
+            <label className="form-label">
+              <span className="caution-symbol">*</span>이메일
             </label>
-            <input name="email" />
-            <button className="join-duplicate-btn" onClick={checkDuplicate}>
+            <input className="form-input-email input-focus" name="email" />
+            <button className="duplicate-btn" onClick={checkDuplicate}>
               중복확인
             </button>
           </div>
-          <div className="join-form-password">
-            <label>
-              <span className="join-caution-symbol">*</span>비밀번호
+          <div className="join-form join-form-pw">
+            <label className="form-label">
+              <span className="caution-symbol">*</span>비밀번호
             </label>
-            <input
-              name="password"
-              placeholder="영문 대소문자와 특수문자 포함, 8자리 이상"
-            />
+            <div className="form-password-wrap">
+              <input
+                className="form-input-long input-focus"
+                name="password"
+                placeholder="영문 대소문자와 특수문자 포함, 8자리 이상"
+              />
+              <span
+                className="join-valid-text"
+                style={
+                  password.length > 0
+                    ? handleValidateDisplay
+                    : { display: 'none' }
+                }
+              >
+                * 비밀번호 형식을 다시 확인해주세요.
+              </span>
+            </div>
           </div>
-          <div className="join-form-name">
-            <label>
-              <span className="join-caution-symbol">*</span>이름
+          <div className="join-form">
+            <label className="form-label">
+              <span className="caution-symbol">*</span>이름
             </label>
-            <input name="name" />
+            <input className="form-input-long input-focus" name="name" />
           </div>
-          <div className="join-form-address">
-            <label>
-              <span className="join-caution-symbol">*</span>주소
+          <div className="join-form">
+            <label className="form-label">
+              <span className="caution-symbol">*</span>주소
             </label>
-            <input name="address" />
+            <input className="form-input-long input-focus" name="address" />
           </div>
-          <button className="join-form-btn">회원가입</button>
+          <button className="join-btn">회원가입</button>
         </form>
       </div>
     </>
