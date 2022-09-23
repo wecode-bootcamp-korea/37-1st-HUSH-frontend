@@ -1,12 +1,12 @@
 import React from 'react';
-import './ProductItem.scss';
+import { Link } from 'react-router-dom';
 
-function ProductCandy({ product }) {
+const ProductChocolate = ({ product }) => {
   const { name, thumbnail_image_url, price, category_id } = product;
 
   return (
     <div className="product-product-inner-box">
-      <div className="product-product-image-box">
+      <a href="https://www.naver.com">
         <div className="thumb">
           <img
             className="product-product-image"
@@ -14,14 +14,13 @@ function ProductCandy({ product }) {
             alt="상품이미지"
           />
         </div>
-        <div className="product-product-info">
-          <p className="bold">{name}</p>
-          <p>{category_id}</p>
-          <p>{price}</p>
-        </div>
+      </a>
+      <div className="product-product-info">
+        <p className="bold">{name}</p>
+        <p>{category_id}</p>
+        <p>{price}</p>
       </div>
     </div>
   );
-}
-
-export default ProductCandy;
+};
+export default ProductChocolate;

@@ -1,194 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import ProductAll from './ProductAll';
-import ProductChocolate from './ProductChocolate';
-import ProductJelly from './ProductJelly';
-import ProductCandy from './ProductCandy';
-import ProductCookie from './ProductCookie';
-import ProductCake from './ProductCake';
+import { useSearchParams } from 'react-router-dom';
+import ProductList from './ProductList';
 import Dropdown from './Dropdown';
 import './Product.scss';
 
+const TAB_LIST = ['all', 'cake', 'candy', 'chocolate', 'cookie', 'jelly'];
+
 function Product() {
-  const [all, setAll] = useState([]);
-  const [chocolates, setChocolate] = useState([]);
-  const [jelly, setJelly] = useState([]);
-  const [candy, setCandy] = useState([]);
-  const [cookie, setCookie] = useState([]);
-  const [cake, setCake] = useState([]);
-  const [filter, setFilter] = useState([]);
+  // const [category, setCategory] = useState({});
+  const [currTab, setCurrTab] = useState('');
+  const [products, setProducts] = useState([]);
+  const [sort, setSort] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownMenu, setDropDownMenu] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams([]);
 
-  useEffect(() => {
-    fetch('/data/all.json')
-      .then(response => response.json())
-      .then(result => setAll(result));
-  }, []);
+  const offset = searchParams.get('offset');
+  const limit = searchParams.get('limit');
 
-  useEffect(() => {
-    fetch('/data/chocolate.json')
-      .then(response => response.json())
-      .then(result => setChocolate(result));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/candy.json')
-      .then(response => response.json())
-      .then(result => setCandy(result));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/jelly.json')
-      .then(response => response.json())
-      .then(result => setJelly(result));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/cookie.json')
-      .then(response => response.json())
-      .then(result => setCookie(result));
-  }, []);
-
-  useEffect(() => {
-    fetch('/data/cake.json')
-      .then(response => response.json())
-      .then(result => setCake(result));
-  }, []);
-
-  // tab
-  const tabContArr = [
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(0)}
-        >
-          <li className="product-tab-name">전체</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {all.map((product, all) => {
-            return (
-              <div className="detail-product-outer-cont" key={all}>
-                <ProductAll product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(1)}
-        >
-          <li className="product-tab-name">초콜릿</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {chocolates.map((product, chocolate) => {
-            return (
-              <div className="detail-product-outer-cont" key={chocolate}>
-                <ProductChocolate product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(2)}
-        >
-          <li className="product-tab-name">젤리</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {jelly.map((product, jelly) => {
-            return (
-              <div className="detail-product-outer-cont" key={jelly}>
-                <ProductJelly product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(3)}
-        >
-          <li className="product-tab-name">캔디</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {candy.map((product, candy) => {
-            return (
-              <div className="detail-product-outer-cont" key={candy}>
-                <ProductCandy product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(4)}
-        >
-          <li className="product-tab-name">쿠키</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {cookie.map((product, cookie) => {
-            return (
-              <div className="detail-product-outer-cont" key={cookie}>
-                <ProductCookie product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-
-    {
-      tabTitle: (
-        <ul
-          className={`${'tabs'} ${activeIndex === 0 ? true : ''}`}
-          onClick={() => tabClickHandler(5)}
-        >
-          <li className="product-tab-name">케이크</li>
-        </ul>
-      ),
-      tabCont: (
-        <div>
-          {cake.map((product, cake) => {
-            return (
-              <div className="detail-product-outer-cont" key={cake}>
-                <ProductCake product={product} />
-              </div>
-            );
-          })}
-        </div>
-      ),
-    },
-  ];
+  const movePage = pageNum => {
+    searchParams.set('offset', (pageNum - 1) * 10);
+    setSearchParams(searchParams);
+  };
 
   const tabClickHandler = index => {
     setActiveIndex(index);
@@ -199,86 +32,111 @@ function Product() {
   };
 
   const filterItemIncrease = event => {
-    setFilter(event.target.value);
-    const priceSorting = [...all];
+    setSort(event.target.value);
+    const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
       // return a[key] > b[key] ? 1 : a[key] > b[key] ? -1 : 0;
       return a[key] - b[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setAll(priceSorting);
+    setProducts(priceSorting);
     // console.log('클릭');
   };
 
   const filterItemDecrease = event => {
-    setFilter(event.target.value);
-    const priceSorting = [...all];
+    setSort(event.target.value);
+    const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
       // return a[key] > b[key] ? -1 : a[key] < b[key] ? -1 : 0;
       return b[key] - a[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setAll(priceSorting);
+    setProducts(priceSorting);
     // console.log('클릭');
   };
+
+  useEffect(() => {
+    fetch(`data/${currTab}.json`)
+      .then(response => response.json())
+      .then(result => setProducts(result));
+  }, [currTab]);
 
   // fetch
   return (
     <section className="product">
       <div className="product-nav">네브바</div>
       <div className="product-pic">
-        <img src="./images/cup.jpg" alt="상품메인이미지" />
+        <img src="/images/cusCakes.jpg" alt="상품" />
         <div className="product-image-letter">
-          <h2>허쉬</h2>
+          <h2>HUSH</h2>
+          <h3>ENJOY YOUR DESSERT!</h3>
         </div>
       </div>
 
-      <div className="products-tabs-cont">
-        <div className="products-tabs">
-          {tabContArr.map((section, index) => {
-            return section.tabTitle;
+      <div className="product-menu-tab-wrap">
+        <div className="products-tabs-cont">
+          <div className="products-tabs">
+            <ul className="tabs">
+              {TAB_LIST.map(tab => (
+                <li
+                  key={tab}
+                  className={`product-tab-name ${
+                    currTab === tab ? 'selected' : ''
+                  }`}
+                  onClick={() => setCurrTab(tab)}
+                >
+                  {tab}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="product-tog-cont">
+          <div className="product-toggle">
+            <button className="product-btn" onClick={showDropDown}>
+              필터링
+            </button>
+            <div>
+              <Dropdown visibility={dropdownMenu}>
+                <ul className="product-dropdown">
+                  <button
+                    className="product-dropdown-btn"
+                    onClick={filterItemIncrease}
+                  >
+                    <li>낮은가격순</li>
+                  </button>
+
+                  <button
+                    className="product-dropdown-btn"
+                    onClick={filterItemDecrease}
+                  >
+                    <li>높은가격순</li>
+                  </button>
+                </ul>
+              </Dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-product-wrap">
+        <div className="detail-product-middle-box">
+          {products.map((product, all) => {
+            return (
+              <div className="detail-product-outer-cont" key={all}>
+                <ProductList product={product} />
+              </div>
+            );
           })}
         </div>
       </div>
 
-      {/* 필터링 드랍다운 */}
-      <div className="product-tog-cont">
-        <div className="product-toggle">
-          <button className="product-btn" onClick={showDropDown}>
-            필터링
-          </button>
-          <div>
-            <Dropdown visibility={dropdownMenu}>
-              <ul className="product-dropdown">
-                <button
-                  className="product-dropdown-btn"
-                  onClick={filterItemIncrease}
-                >
-                  <li>낮은가격순</li>
-                </button>
-
-                <button
-                  className="product-dropdown-btn"
-                  onClick={filterItemDecrease}
-                >
-                  <li>높은가격순</li>
-                </button>
-              </ul>
-            </Dropdown>
-          </div>
-        </div>
-      </div>
-      {/* -------- */}
-
-      <div className="detail-product-wrap">
-        {tabContArr[activeIndex].tabCont}
-      </div>
-
       {/* footer button */}
       <div className="product-footer-button">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <button onClick={() => movePage(1)}>1</button>
+        <button onClick={() => movePage(2)}>2</button>
+        <button onClick={() => movePage(3)}>3</button>
+        <button onClick={() => movePage(4)}>4</button>
         <button> &gt;</button>
         <button> &gt;&gt;</button>
       </div>

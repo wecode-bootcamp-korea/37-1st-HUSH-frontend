@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "가니",
+    "name": "가니ddfa",
     "price": "3000",
     "count": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
@@ -12,7 +12,7 @@
 
   {
     "id": 2,
-    "name": "미니쉘",
+    "name": "미니쉘fff",
     "price": "2500",
     "count": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
