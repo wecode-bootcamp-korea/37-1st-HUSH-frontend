@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Login/Login.scss';
+import './Login.scss';
 
 function Login() {
   const [inputValue, setInputValue] = useState({
@@ -26,7 +26,7 @@ function Login() {
       }),
     })
       .then(response => {
-        if (response.ok === true) {
+        if (response.ok) {
           return response.json();
         }
         throw new Error('에러 발생!');
@@ -78,7 +78,6 @@ function Login() {
         </form>
         <p className="login-link-join">회원가입</p>
       </div>
-      <div></div>
     </>
   );
 }
