@@ -1,35 +1,19 @@
 import React from 'react';
-import Nav from '../nav/Nav';
 import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="footer-Wrap">
-      <div className="footer-Aside">
-        <img
-          src={process.env.PUBLIC_URL + '/images/Footer/footerImg1.png'}
-          alt="footer-AsideImg"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/Footer/footerImg2.png'}
-          alt="footer-AsideImg"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/Footer/footerImg3.png'}
-          alt="footer-AsideImg"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/Footer/footerImg4.png'}
-          alt="footer-AsideImg"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/Footer/footerImg5.png'}
-          alt="footer-AsideImg"
-        />
+    <div className="footer-wrap">
+      <div className="footer-aside">
+        <img src="/images/Footer/footerImg1.png" alt="footer 리스트 이미지1" />
+        <img src="/images/Footer/footerImg2.png" alt="footer 리스트 이미지2" />
+        <img src="/images/Footer/footerImg3.png" alt="footer 리스트 이미지3" />
+        <img src="/images/Footer/footerImg4.png" alt="footer 리스트 이미지4" />
+        <img src="/images/Footer/footerImg5.png" alt="footer 리스트 이미지5" />
       </div>
-      <div className="footer-Main">
-        <div className="footer-Left">
-          <div className="footer-Input">
+      <div className="footer-main">
+        <div className="footer-left">
+          <div className="footer-input">
             <input type="text" placeholder="이메일주소를 입력해주세요" />
             <button>구독</button>
           </div>
@@ -40,7 +24,7 @@ function Footer() {
               <a href="#!">미리보기</a>
             </span>
           </p>
-          <div className="cs-Center">
+          <div className="cs-center">
             <strong>고객센터</strong>
             <strong>기업선물</strong>
             <strong>1644-9825</strong>
@@ -50,27 +34,15 @@ function Footer() {
             <span>상담전화 13:00 16:00(평일)</span>
             <span>상담톡 10:00 16:00(평일)</span>
           </div>
-          <div className="sns-Box">
-            <img
-              src={process.env.PUBLIC_URL + '/images/Footer/IconInstar.png'}
-              alt="footer-Icon"
-            />
-            <img
-              src={process.env.PUBLIC_URL + '/images/Footer/IconFace.png'}
-              alt="footer-Icon"
-            />
-            <img
-              src={process.env.PUBLIC_URL + '/images/Footer/IconMini.png'}
-              alt="footer-Icon"
-            />
-            <img
-              src={process.env.PUBLIC_URL + '/images/Footer/IconTalk.png'}
-              alt="footer-Icon"
-            />
+          <div className="sns-box">
+            <img src="/images/Footer/IconInstar.png" alt="footer-icon" />
+            <img src="/images/Footer/IconFace.png" alt="footer-icon" />
+            <img src="/images/Footer/IconMini.png" alt="footer-icon" />
+            <img src="/images/Footer/IconTalk.png" alt="footer-icon" />
           </div>
         </div>
-        <div className="footer-Right">
-          <div className="nav-Notice">
+        <div className="footer-right">
+          <div className="nav-notice">
             <a href="#!">공지 사항</a>
             <p>
               2022-09-20 [공지] 회원가입 시 초기 100,000포인트 제공
@@ -81,7 +53,7 @@ function Footer() {
               <span>new</span>
             </p>
           </div>
-          <div className="nav-Footer-Menu">
+          <div className="nav-footer-menu">
             <strong>러쉬소개</strong>
             <strong>개인정보방침</strong>
             <strong>FAQ</strong>
