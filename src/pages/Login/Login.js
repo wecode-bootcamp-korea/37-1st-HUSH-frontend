@@ -32,17 +32,18 @@ function Login() {
         throw new Error('에러 발생!');
       })
       .catch(error => {
-        alert(error);
+        if (error.message === 'WRONG_EMAIL') {
+          alert('이메일을 다시 작성해주세요.');
+        } else if (error.message === 'WRONG_PASSWORD') {
+          alert('비밀번호를 다시 작성해주세요.');
+        }
       })
       .then(data => {
-        console.log(data);
         if (data.message === 'EXCESS_SUCCESS') {
           localStorage.setItem('accessToken', data.accessToken);
-          alert('로그인 성공');
-        } else if (data.message === 'WRONG_EMAIL') {
-          alert('이메일 다시');
-        } else if (data.message === 'WRONG_PASSWORD') {
-          alert('비밀번호 다시');
+          alert('로그인 성공!');
+        } else {
+          alert('로그인 실패!');
         }
       });
   };
