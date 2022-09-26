@@ -11,6 +11,7 @@ function Join() {
     name: '',
     address: '',
   });
+  const [isCheckEmail, setIsCheckEmail] = useState(false);
 
   const inputChange = e => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
@@ -18,18 +19,12 @@ function Join() {
 
   const { email, password, name, address } = inputValue;
 
-  const [isCheckEmail, setIsCheckEmail] = useState(false);
-
-  const pwValidation = /(?=.*[a-zA-ZS])(?=.*?[#?!@$%^&*-]).{8,}/;
-
-  let handleValidateDisplay = pwValidation.test(password)
-    ? { display: 'none' }
-    : { display: 'inline-block' };
+  const isPwValid = PW_VALIDATION.test(password);
 
   const checkDuplicate = e => {
     e.preventDefault();
 
-    fetch('http://10.58.2.130:3001/users/signup/user', {
+    fetch('http://192.168.228.223:3001/user/check', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -38,15 +33,7 @@ function Join() {
         email: email,
       }),
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('에러 발생!');
-      })
-      .catch(error => {
-        alert(error);
-      })
+      .then(response => response.json())
       .then(data => {
         if (data.message === 'ACCESS_SUCCESS') {
           alert('사용 가능한 이메일입니다.');
@@ -61,41 +48,36 @@ function Join() {
   const submitForm = e => {
     e.preventDefault();
 
-    if (isCheckEmail) {
-      fetch('http://10.58.2.130:3001/users/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify({
-          email: email,
-          name: name,
-          password: password,
-          address: address,
-        }),
-      })
-        .then(response => {
-          if (response.ok === true) {
-            return response.json();
-          }
-          throw new Error('에러 발생!!');
-        })
-        .catch(error => {
-          alert(error);
-        })
-        .then(data => {
-          if (data.message === 'SIGN_UP_SUCCESS') {
-            alert('회원가입 성공!');
-            navigate('/login');
-          } else if (data.message === 'INVALID_PASSWORD') {
-            alert(
-              '영문(대소문자)과 특수문자를 포함한 8자리 이상의 비밀번호를 작성해주세요.'
-            );
-          }
-        });
-    } else {
+    if (!isCheckEmail) {
       alert('이메일 중복을 확인해주세요.');
+      return;
     }
+
+    fetch('http://192.168.228.223:3001/user/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        password: password,
+        address: address,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'SIGN_UP_SUCCESS') {
+          alert('회원가입 성공!');
+          navigate('/login');
+        } else if (data.message === 'INVALID_PASSWORD') {
+          alert(
+            '영문(대소문자)과 특수문자를 포함한 8자리 이상의 비밀번호를 작성해주세요.'
+          );
+        } else {
+          alert('회원가입 실패!');
+        }
+      });
   };
 
   return (
@@ -130,16 +112,11 @@ function Join() {
                 name="password"
                 placeholder="영문 대소문자와 특수문자 포함, 8자리 이상"
               />
-              <span
-                className="join-valid-text"
-                style={
-                  password.length > 0
-                    ? handleValidateDisplay
-                    : { display: 'none' }
-                }
-              >
-                * 비밀번호 형식을 다시 확인해주세요.
-              </span>
+              {password.length > 0 && !isPwValid && (
+                <span className="join-valid-text">
+                  * 비밀번호 형식을 다시 확인해주세요.
+                </span>
+              )}
             </div>
           </div>
           <div className="join-form">
@@ -162,3 +139,5 @@ function Join() {
 }
 
 export default Join;
+
+const PW_VALIDATION = /(?=.*[a-zA-ZS])(?=.*?[#?!@$%^&*-]).{8,}/;
