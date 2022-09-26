@@ -26,6 +26,7 @@
 
   .head-checkbox {
     margin: 15px 10px 15px 20px;
+    cursor: pointer;
   }
 
   .head-text-info {
@@ -54,6 +55,7 @@
   }
   .product-content-input input {
     margin: 15px 10px 15px 20px;
+    cursor: pointer;
   }
 
   .product-content-detail {
@@ -169,7 +171,7 @@
 }
 
 .cart-shop-btn {
-  margin: 30px 15px 0 0;
+  margin: 30px 15px 100px 0;
   padding: 20px 0;
   width: 230px;
   border: 1px solid #222;
@@ -178,9 +180,10 @@
 }
 
 .cart-pay-btn {
-  margin: 30px 0 0 0;
+  margin: 30px 0 100px 0;
   padding: 20px 0;
   width: 230px;
+  border: 1px solid #222;
   background-color: #222;
   font-size: 16px;
   color: white;
