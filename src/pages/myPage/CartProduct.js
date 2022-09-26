@@ -1,35 +1,61 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../myPage/Cart.scss';
 
-function CartProduct({ img, name, category, quantity, price, stock }) {
+function CartProduct({
+  id,
+  img,
+  name,
+  category,
+  quantity,
+  price,
+  stock,
+  handleSingleChecked,
+  checkedList,
+  changeQuantity,
+  totalSum,
+}) {
   price = Number(price);
-
-  const productCheckbox = useRef();
+  quantity = Number(quantity);
 
   const [productQuantity, setProductQuantity] = useState(quantity);
-  let totalSum = productQuantity * price;
 
-  const changeQuantity = e => {
-    if (e.target.className === 'quantity-minus-btn') {
-      if (productQuantity <= 1) {
-        alert('최소 구매가능 수량은 1개입니다.');
-      } else {
-        setProductQuantity(Number(productQuantity) - 1);
-      }
+  totalSum = productQuantity * price;
+
+  const decreaseQuantity = e => {
+    if (productQuantity <= 1) {
+      alert('최소 구매가능 수량은 1개입니다.');
     } else {
-      if (productQuantity >= stock) {
-        alert(`최대 구매가능 수량은 ${stock}개입니다.`);
-      } else {
-        setProductQuantity(Number(productQuantity) + 1);
-      }
+      setProductQuantity(productQuantity - 1);
+      // fetch('api 주소', {
+      //   method: 'POST',
+      //   body:JSON.stringify()
+      // })
+    }
+  };
+  // console.log(checkedPrice);
+
+  const increaseQuantity = e => {
+    if (productQuantity >= stock) {
+      alert(`최대 구매가능 수량은 ${stock}개입니다.`);
+    } else {
+      setProductQuantity(productQuantity + 1);
     }
   };
 
+  useEffect(() => {
+    changeQuantity(id, 'quantity', productQuantity);
+  }, [productQuantity]);
+
   return (
     <>
-      <tr className="cart-product-content">
+      <tr className="cart-product-content" id={id}>
         <td className="product-content-input">
-          <input type="checkbox" id="content-checkbox" ref={productCheckbox} />
+          <input
+            type="checkbox"
+            id={id}
+            checked={checkedList.includes(id)}
+            onChange={handleSingleChecked}
+          />
         </td>
         <td className="product-content-detail">
           <img className="content-detail-img" src={img} alt="제품 이미지" />
@@ -39,9 +65,9 @@ function CartProduct({ img, name, category, quantity, price, stock }) {
           </div>
         </td>
         <td className="product-content-quantity">
-          <button className="quantity-minus-btn" onClick={changeQuantity} />
+          <button className="quantity-minus-btn" onClick={decreaseQuantity} />
           <span className="quantity-count">{productQuantity}</span>
-          <button className="quantity-plus-btn" onClick={changeQuantity} />
+          <button className="quantity-plus-btn" onClick={increaseQuantity} />
         </td>
         <td className="product-content-price">
           ₩ {price.toLocaleString('ko-KR')}
@@ -50,6 +76,7 @@ function CartProduct({ img, name, category, quantity, price, stock }) {
           ₩ {totalSum.toLocaleString('ko-KR')}
         </td>
       </tr>
+      {/* <div></div> */}
     </>
   );
 }

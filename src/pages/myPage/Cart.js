@@ -1,15 +1,81 @@
 import React, { useState, useEffect } from 'react';
-import CartProduct from '../myPage/CartProduct.js';
+import CartProduct from './CartProduct';
 import '../myPage/Cart.scss';
 
 function Cart() {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/cart.json')
-      .then(res => res.json())
-      .then(data => setProductData(data));
+    fetch('http://192.168.228.252:3000/cart/listUp', {
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
+      },
+    })
+      .then(res => {
+        if (res) {
+          return res.json();
+        }
+        throw new Error('에러 발생!');
+      })
+      .catch(error => {
+        alert(error);
+      })
+      .then(data => {
+        console.log(data.data);
+        setProductData(data.data);
+      });
   }, []);
+
+  // input이 체크된 상품의 id리스트
+  const [checkedList, setCheckedList] = useState([]);
+
+  const handleSingleChecked = e => {
+    if (e.target.checked) {
+      setCheckedList([...checkedList, Number(e.target.id)]);
+    } else if (!e.target.checked) {
+      setCheckedList(checkedList.filter(el => el !== Number(e.target.id)));
+    }
+  };
+
+  const handleAllChecked = e => {
+    if (e.target.checked) {
+      let newArr = [];
+      productData.forEach(el => newArr.push(el.pId));
+      setCheckedList(newArr);
+    } else {
+      setCheckedList([]);
+    }
+  };
+  // console.log(checkedList);
+
+  // 장바구니 수량 변경 시 전송할 내용, quantityData
+  const [quantityData, setQuantityData] = useState({});
+
+  const changeQuantity = (pId, key, value) => {
+    setQuantityData({ ...quantityData, pId: pId, quantity: value });
+  };
+  console.log(quantityData);
+
+  // 선택 삭제
+  const deleteChecked = () => {
+    let filtered = productData.filter(el => {
+      return !checkedList.includes(el.pId);
+    });
+    setProductData(filtered);
+  };
+
+  const orderProduct = () => {
+    fetch('api주소', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(checkedList),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  };
 
   return (
     <>
@@ -24,6 +90,8 @@ function Cart() {
                   className="head-checkbox"
                   type="checkbox"
                   id="checkbox"
+                  checked={checkedList.length === productData.length}
+                  onChange={handleAllChecked}
                 />
                 <label htmlFor="checkbox" />
               </th>
@@ -36,22 +104,28 @@ function Cart() {
           <tbody className="cart-product-body">
             {productData.map(product => (
               <CartProduct
-                key={product.id}
-                img={product.img_id}
-                name={product.name}
-                category={product.category_id}
-                quantity={Number(product.count)}
+                key={product.pId}
+                id={product.pId}
+                img={product.url}
+                name={product.pName}
+                category={product.cName}
+                quantity={product.quantity}
                 price={product.price}
-                stock={product.stock}
+                stock={product.pStock}
+                handleSingleChecked={handleSingleChecked}
+                checkedList={checkedList}
+                changeQuantity={changeQuantity}
               />
             ))}
           </tbody>
         </table>
-        <button className="cart-delete-btn">선택 삭제</button>
+        <button className="cart-delete-btn" onClick={deleteChecked}>
+          선택 삭제
+        </button>
         <ul className="cart-calc">
           <li>
             <span className="calc-title">선택제품</span>
-            <span className="calc-count">0 개</span>
+            <span className="calc-count">{checkedList.length} 개</span>
           </li>
           <li>
             <span className="calc-title">제품합계</span>
@@ -68,9 +142,12 @@ function Cart() {
         </ul>
         <div>
           <button className="cart-shop-btn">쇼핑 계속하기</button>
-          <button className="cart-pay-btn">주문하기</button>
+          <button className="cart-pay-btn" onClick={orderProduct}>
+            주문하기
+          </button>
         </div>
       </div>
+      <div></div>
     </>
   );
 }
