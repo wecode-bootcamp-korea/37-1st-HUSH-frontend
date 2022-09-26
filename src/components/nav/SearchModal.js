@@ -1,11 +1,9 @@
 import React from 'react';
 
-function SearchModal({ testData }) {
+function SearchModal({ searchData }) {
   return (
-    <div>
-      <div className="search-List">
-        <p>{testData}</p>
-      </div>
+    <div className="search-list">
+      <p>{searchData}</p>
     </div>
   );
 }

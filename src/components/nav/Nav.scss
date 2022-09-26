@@ -1,11 +1,12 @@
-.nav-Wrap {
+.nav-wrap {
   position: fixed;
   top: 0;
   width: 100%;
   height: 128px;
   border-bottom: 1px solid gray;
+  z-index: 1;
 
-  .nav-Aside {
+  .nav-aside {
     background: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
@@ -18,7 +19,7 @@
       color: white;
     }
   }
-  .nav-Body {
+  .nav-body {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -26,19 +27,25 @@
     background: white;
     border-bottom: 1px solid gray;
 
-    .nav-Body-Left {
+    .nav-body-left {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100%;
 
-      .nav-Logo {
+      .nav-logo {
         font-size: 35px;
         font-weight: 900;
         margin-right: 50px;
+
+        .nav-logo-text {
+          font-size: 35px;
+          font-weight: 700;
+          text-decoration: none;
+        }
       }
 
-      .nav-Menu {
+      .nav-menu {
         display: flex;
         justify-content: space-around;
         width: 400px;
@@ -58,13 +65,13 @@
         }
       }
     }
-    .nav-Body-Right {
+    .nav-body-right {
       display: flex;
       justify-content: space-around;
       align-items: center;
       width: 400px;
 
-      .point-Info {
+      .point-info {
         font-size: 30px;
         text-decoration: none;
         color: gray;
@@ -82,10 +89,10 @@
         margin-left: 30px;
       }
 
-      .login-Page-Btn {
+      .login-page-btn {
         position: relative;
       }
-      .my-Page-Modal {
+      .my-page-modal {
         position: absolute;
         width: 200px;
 
