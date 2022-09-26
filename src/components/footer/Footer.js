@@ -5,11 +5,11 @@ function Footer() {
   return (
     <div className="footer-wrap">
       <div className="footer-aside">
-        <img src="/images/Footer/footerImg1.png" alt="footer 리스트 이미지1" />
-        <img src="/images/Footer/footerImg2.png" alt="footer 리스트 이미지2" />
-        <img src="/images/Footer/footerImg3.png" alt="footer 리스트 이미지3" />
-        <img src="/images/Footer/footerImg4.png" alt="footer 리스트 이미지4" />
-        <img src="/images/Footer/footerImg5.png" alt="footer 리스트 이미지5" />
+        <img src="/images/Footer/footerImg2.png" alt="후원사" />
+        <img src="/images/Footer/footerImg1.png" alt="후원사" />
+        <img src="/images/Footer/footerImg3.png" alt="후원사" />
+        <img src="/images/Footer/footerImg4.png" alt="후원사" />
+        <img src="/images/Footer/footerImg5.png" alt="후원사" />
       </div>
       <div className="footer-main">
         <div className="footer-left">
@@ -35,10 +35,10 @@ function Footer() {
             <span>상담톡 10:00 16:00(평일)</span>
           </div>
           <div className="sns-box">
-            <img src="/images/Footer/IconInstar.png" alt="footer-icon" />
-            <img src="/images/Footer/IconFace.png" alt="footer-icon" />
-            <img src="/images/Footer/IconMini.png" alt="footer-icon" />
-            <img src="/images/Footer/IconTalk.png" alt="footer-icon" />
+            <img src="/images/Footer/IconInstar.png" alt="인스타그램" />
+            <img src="/images/Footer/IconFace.png" alt="페이스북" />
+            <img src="/images/Footer/IconMini.png" alt="네이트온" />
+            <img src="/images/Footer/IconTalk.png" alt="카카오톡" />
           </div>
         </div>
         <div className="footer-right">
