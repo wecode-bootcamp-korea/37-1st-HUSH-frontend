@@ -3,7 +3,7 @@ import './Intro.scss';
 
 function Intro() {
   return (
-    <div className="Intro-wrap">
+    <div className="intro-wrap">
       <video
         width="440"
         height="250"
