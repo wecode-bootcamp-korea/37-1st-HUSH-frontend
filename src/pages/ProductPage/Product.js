@@ -4,19 +4,17 @@ import ProductList from './ProductList';
 import Dropdown from './Dropdown';
 import './Product.scss';
 
-const TAB_LIST = ['all', 'cake', 'candy', 'chocolate', 'cookie', 'jelly'];
+const TAB_LIST = ['all', '초콜릿', '캔디', '쿠키', '젤리', '케이크'];
 
 function Product() {
-  // const [category, setCategory] = useState({});
-  const [currTab, setCurrTab] = useState('');
+  const [currTab, setCurrTab] = useState('all');
   const [products, setProducts] = useState([]);
   const [sort, setSort] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownMenu, setDropDownMenu] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams([]);
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const offset = searchParams.get('offset');
-  const limit = searchParams.get('limit');
+  const limit = 12;
 
   const movePage = pageNum => {
     searchParams.set('offset', (pageNum - 1) * 10);
@@ -25,6 +23,7 @@ function Product() {
 
   const tabClickHandler = index => {
     setActiveIndex(index);
+    setCurrTab.filter(item => item.setCurrTab);
   };
 
   const showDropDown = () => {
@@ -35,36 +34,41 @@ function Product() {
     setSort(event.target.value);
     const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
-      // return a[key] > b[key] ? 1 : a[key] > b[key] ? -1 : 0;
       return a[key] - b[key];
     };
     priceSorting.sort(priceCompare('price'));
     setProducts(priceSorting);
-    // console.log('클릭');
   };
 
   const filterItemDecrease = event => {
     setSort(event.target.value);
     const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
-      // return a[key] > b[key] ? -1 : a[key] < b[key] ? -1 : 0;
       return b[key] - a[key];
     };
     priceSorting.sort(priceCompare('price'));
     setProducts(priceSorting);
-    // console.log('클릭');
   };
 
   useEffect(() => {
+    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${10}`)
     fetch(`data/${currTab}.json`)
+      // fetch(
+      //   `http://192.168.228.223:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
+      //   {
+      //     headers: {
+      //       authorization:
+      //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
+      //     },
+      //   }
+      // )
       .then(response => response.json())
       .then(result => setProducts(result));
-  }, [currTab]);
+  }, [currTab, offset, limit]);
 
-  // fetch
   return (
     <section className="product">
-      <div className="product-nav">네브바</div>
+      <div className="product-nav">nav</div>
       <div className="product-pic">
         <img src="/images/cusCakes.jpg" alt="상품" />
         <div className="product-image-letter">
@@ -93,7 +97,12 @@ function Product() {
         </div>
         <div className="product-tog-cont">
           <div className="product-toggle">
-            <button className="product-btn" onClick={showDropDown}>
+            <button
+              className="product-btn"
+              onClick={() => {
+                setDropDownMenu(!dropdownMenu);
+              }}
+            >
               필터링
             </button>
             <div>
@@ -137,8 +146,6 @@ function Product() {
         <button onClick={() => movePage(2)}>2</button>
         <button onClick={() => movePage(3)}>3</button>
         <button onClick={() => movePage(4)}>4</button>
-        <button> &gt;</button>
-        <button> &gt;&gt;</button>
       </div>
     </section>
   );

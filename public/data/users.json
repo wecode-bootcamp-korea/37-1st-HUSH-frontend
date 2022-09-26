@@ -25,14 +25,5 @@
     "point": "100,000",
     "create_at": "2022년 8월 30일 12시 04분",
     "update_at": "미사용 데이터"
-  },
-  {
-    "id": 4,
-    "email": "suckmoon@daum.net",
-    "password": "Suckmmon262!",
-    "address": "부산광역시 연제구 연산동 372-8",
-    "point": "100,000",
-    "create_at": "2022년 9월 09일 09시 22분",
-    "update_at": "미사용 데이터"
   }
 ]
