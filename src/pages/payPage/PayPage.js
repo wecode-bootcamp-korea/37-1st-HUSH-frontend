@@ -4,39 +4,71 @@ import './PayPage.scss';
 import ProductInfo from './ProductInfo';
 
 function PayPage() {
+  const [payData, setPayData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://192.168.228.223:3000/products/showproduct/3', {
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setPayData(data);
+      });
+  }, []);
+  console.log(payData);
+
   const [check, setCheck] = useState(false);
 
-  console.log(typeof check); //지워도 될 거 같은데?
-  const checkTeset = e => {
-    console.log('체크 박스 여부', e.target.checked);
+  const isCheck = e => {
     setCheck(e.target.checked);
   };
 
-  const clickTest = () => {
-    alert('결제가 완료되었습니다');
-    //통신 데이터 전송
+  const [selecter, setSelecter] = useState('');
+  const [orderMessages, setOrderMessages] = useState('');
+  const [isOrderInput, setIsOrderInput] = useState(false);
+
+  const choiceMessages = e => {
+    setSelecter(e.target.selectedIndex);
+    setOrderMessages(e.target.value);
   };
 
-  //통신 테스트 데이터 확인용
-  const [productData, setProductData] = useState([]);
+  const inputMessages = e => {
+    setOrderMessages(e.target.value);
+  };
+
+  useEffect(() => {
+    selecter === 4 ? setIsOrderInput(true) : setIsOrderInput(false);
+  }, [choiceMessages]);
+
+  const [testData, setTestData] = useState([]);
 
   useEffect(() => {
     fetch('/data/payTest.json')
       .then(response => response.json())
-      .then(result => setProductData(result));
+      .then(result => setTestData(result));
   }, []);
 
-  useEffect(() => {
-    console.log('장바구니에 담긴 애들을 전체 받아옴', productData);
-
-    productData.map(item => {
-      const test = [];
-      if (item.check === true) {
-        test.push(item);
-      }
-      console.log('check가 true인 애들만 필터링한 값', test);
-    });
-  }, []);
+  const payBtn = () => {
+    fetch('http://192.168.192.223:3000/order', {
+      method: 'POST',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjM3NTcxNTZ9.aWMCo2vBo_8cEUxE1HwGRekiuQvgRYEwS09JdFiQDmw',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        total: testData[0].price,
+        reqMessage: orderMessages,
+        address: testData[0].order,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log(result));
+    alert('결제가 완료되었습니다');
+  };
 
   return (
     <div className="pay-wrap">
@@ -58,7 +90,12 @@ function PayPage() {
       </div>
       <div className="order-wrap">
         <h2>배송 정보</h2>
-        <OrderInfo />
+        <OrderInfo
+          choiceMessages={choiceMessages}
+          isOrderInput={isOrderInput}
+          inputMessages={inputMessages}
+          orderMessages={orderMessages}
+        />
       </div>
       <div className="payment-wrap">
         <h2 className="pay-info">결제 정보</h2>
@@ -73,16 +110,11 @@ function PayPage() {
       </div>
       <div className="pay-footer">
         <label>
-          <input
-            type="checkbox"
-            name="color"
-            value="blue"
-            onChange={checkTeset}
-          />
+          <input type="checkbox" name="color" value="blue" onChange={isCheck} />
           <span>(필수)</span>구매하실 제품의 결제정보를 확인하였으며, 구매진행에
           동의합니다.
         </label>
-        <button disabled={check === false ? true : false} onClick={clickTest}>
+        <button disabled={check === false ? true : false} onClick={payBtn}>
           ₩2,500원 결제하기
         </button>
       </div>

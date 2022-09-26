@@ -1,8 +1,8 @@
 .pay-wrap {
-  margin-top: 200px; /*지울 거*/
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 80px;
 
   h1 {
     font-size: 50px;
@@ -13,13 +13,13 @@
     display: block;
     margin: 0 auto;
     margin-top: 50px;
-    width: 80%;
+    width: 1330px;
     font-size: 30px;
     border-bottom: 1px solid rgb(142, 141, 141);
   }
 
   .product-wrap {
-    width: 100%;
+    width: 1650px;
     margin-top: 100px;
 
     .info-box {
@@ -31,7 +31,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 80%;
+        width: 1330px;
         height: 60px;
         border-bottom: 1px solid rgb(142, 141, 141);
 
@@ -45,12 +45,19 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 80%;
+        width: 1330px;
         margin: 10px;
         padding-bottom: 20px;
         border-bottom: 1px solid black;
 
+        strong {
+          position: relative;
+          right: 5px;
+          font-size: 20px;
+        }
+
         p {
+          font-size: 15px;
           width: 140px;
         }
 
@@ -61,14 +68,14 @@
     }
   }
   .orderer-wrap {
-    width: 100%;
+    width: 1650px;
     margin-top: 20px;
 
     .orderer-info {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      width: 80%;
+      width: 1330px;
       height: 140px;
       margin: 0 auto;
       border-bottom: 1px solid black;
@@ -90,7 +97,7 @@
   }
 
   .order-wrap {
-    width: 100%;
+    width: 1650px;
     margin-top: 20px;
 
     .order-info {
@@ -98,7 +105,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      width: 80%;
+      width: 1330px;
       height: 140px;
       margin: 0 auto;
       padding-left: 50px;
@@ -107,6 +114,21 @@
       strong {
         font-size: 20px;
         margin-right: 10px;
+      }
+
+      .order-message {
+        display: flex;
+
+        .order-choice-wrap {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+
+          input {
+            position: relative;
+            top: 10px;
+          }
+        }
       }
 
       .order-address {
@@ -126,7 +148,7 @@
   }
 
   .payment-wrap {
-    width: 100%;
+    width: 1630px;
     margin-top: 20px;
 
     h2 {
@@ -140,7 +162,7 @@
       justify-content: center;
       align-items: center;
       border-radius: 5px;
-      width: 80%;
+      width: 1350px;
       height: 80px;
       margin: 0 auto;
 
