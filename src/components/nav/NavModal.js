@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import './NavModal.scss';
 import SearchModal from './SearchModal';
+import './NavModal.scss';
 
 function NavModal({ closeModal }) {
   const [inputValue, setInputValue] = useState('');
   const [searchList, setSearchList] = useState([]);
-  const [searchData, setSearchData] = useState([]);
   const [isSearchModal, setIsSearchModal] = useState(false);
-
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then(response => response.json())
-      .then(result => setSearchList(result));
-  }, []);
 
   const searchInput = e => {
     setInputValue(e.target.value);
     setIsSearchModal(true);
-    searchList.filter(item => {
-      if (item.name.includes(inputValue)) {
-        setSearchData(item.name);
-      }
-    });
   };
+
+  useEffect(() => {
+    fetch(`http://192.168.228.223:3001/search?keyword=${inputValue}`)
+      .then(response => response.json())
+      .then(result => setSearchList(result));
+  }, [inputValue]);
 
   return (
     <div>
@@ -43,7 +37,7 @@ function NavModal({ closeModal }) {
           </a>
           <button onClick={closeModal}>x</button>
         </div>
-        {isSearchModal && <SearchModal searchData={searchData} />}
+        {isSearchModal && <SearchModal searchList={searchList.message} />}
         <div className="search-footer">
           <div className="search-modal-left">
             <h2>인기 검색어</h2>

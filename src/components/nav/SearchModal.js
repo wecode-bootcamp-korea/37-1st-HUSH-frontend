@@ -1,9 +1,11 @@
 import React from 'react';
 
-function SearchModal({ searchData }) {
+function SearchModal({ searchList }) {
   return (
     <div className="search-list">
-      <p>{searchData}</p>
+      {searchList.map(item => {
+        return <p key={item.id}>{item.name}</p>;
+      })}
     </div>
   );
 }

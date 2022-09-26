@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Nav.scss';
 import NavModal from './NavModal';
+import './Nav.scss';
+const loginImg = ['/images/Nav/loginClick.png', '/images/Nav/login.png'];
 
 function Nav() {
   const location = useLocation();
@@ -10,15 +11,13 @@ function Nav() {
   const [isMenu, setIsMenu] = useState(false);
   const [isMenuImg, setIsMenuImg] = useState(false);
 
-  const loginImg = ['/images/Nav/loginClick.png', '/images/Nav/login.png'];
-
   useEffect(() => {
     setIsMenu(false);
     setIsSearch(false);
   }, [location.pathname]);
 
   const showSearchToggle = () => {
-    setIsSearch(Toggle => !Toggle);
+    setIsSearch(toggle => !toggle);
   };
   const closeSearchModal = () => {
     setIsSearch(false);
@@ -27,6 +26,20 @@ function Nav() {
   const menuModalToggle = () => {
     setIsMenu(prev => !prev);
   };
+
+  const [pointInput, setPointInput] = useState({});
+  const { point } = pointInput;
+
+  useEffect(() => {
+    fetch('http://192.168.228.223:3001/user/point', {
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
+      },
+    })
+      .then(response => response.json())
+      .then(result => setPointInput(result.message));
+  }, []);
 
   return (
     <div className="nav-wrap">
@@ -58,7 +71,7 @@ function Nav() {
         <ul className="nav-body-right">
           <li>
             <a className="point-info" href="#!">
-              100,000
+              {point}
               <span>point</span>
             </a>
           </li>
@@ -68,7 +81,7 @@ function Nav() {
                 onClick={showSearchToggle}
                 className="search-modal-btn"
                 src="/images/Nav/search.png"
-                alt="검색 아이콘"
+                alt="검색"
               />
             </a>
           </li>
@@ -77,7 +90,7 @@ function Nav() {
               <img
                 className="basket-page-btn"
                 src="/images/Nav/basket.png"
-                alt="장바구니 아이콘"
+                alt="장바구니"
               />
             </Link>
           </li>
@@ -89,7 +102,7 @@ function Nav() {
                 onMouseOut={() => setIsMenuImg(false)}
                 onClick={menuModalToggle}
                 src={isMenuImg ? loginImg[0] : loginImg[1]}
-                alt="텝메뉴 아이콘"
+                alt="텝메뉴"
               />
             </a>
             {isMenu && (
