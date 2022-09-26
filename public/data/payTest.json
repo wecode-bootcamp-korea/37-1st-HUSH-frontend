@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "미니쉘",
+    "price": "2500",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "order": "서울시 동작구 상도동 356-6",
+    "check": true,
+    "update_at": "미사용 데이터"
+  },
+  {
+    "id": 2,
+    "name": "리얼100퍼센트",
+    "price": "3000",
+    "count": "1",
+    "img_id": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
+    "category_id": "초콜릿",
+    "create_at": "2022년 06월 07일",
+    "order": "서울시 동작구 상도동 356-6",
+    "check": false,
+    "update_at": "미사용 데이터"
+  }
+]

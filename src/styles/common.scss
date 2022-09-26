@@ -1,4 +1,4 @@
-@import url(‘https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap’);
+// @import url(‘https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap’);
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -10,20 +10,11 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-body,
-input,
-textarea,
-select,
-button,
-table {
-  font-family: ‘Noto Sans KR’, ‘Apple Gothic’, ‘Open Sans’, sans-serif;
-  font-size: 14px;
-  line-height: 1.3em;
-  color: #111;
-  letter-spacing: -0.03em;
-  word-break: keep-all;
-  -webkit-text-size-adjust: none;
+
+body {
+  padding-top: 120px;
 }
+
 h1,
 h2,
 h3,
