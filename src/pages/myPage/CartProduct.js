@@ -32,7 +32,6 @@ function CartProduct({
       // })
     }
   };
-  // console.log(checkedPrice);
 
   const increaseQuantity = e => {
     if (productQuantity >= stock) {
@@ -76,7 +75,6 @@ function CartProduct({
           ₩ {totalSum.toLocaleString('ko-KR')}
         </td>
       </tr>
-      {/* <div></div> */}
     </>
   );
 }

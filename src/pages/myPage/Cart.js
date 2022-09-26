@@ -27,7 +27,6 @@ function Cart() {
       });
   }, []);
 
-  // input이 체크된 상품의 id리스트
   const [checkedList, setCheckedList] = useState([]);
 
   const handleSingleChecked = e => {
@@ -47,17 +46,13 @@ function Cart() {
       setCheckedList([]);
     }
   };
-  // console.log(checkedList);
 
-  // 장바구니 수량 변경 시 전송할 내용, quantityData
   const [quantityData, setQuantityData] = useState({});
 
   const changeQuantity = (pId, key, value) => {
     setQuantityData({ ...quantityData, pId: pId, quantity: value });
   };
-  console.log(quantityData);
 
-  // 선택 삭제
   const deleteChecked = () => {
     let filtered = productData.filter(el => {
       return !checkedList.includes(el.pId);
@@ -147,7 +142,6 @@ function Cart() {
           </button>
         </div>
       </div>
-      <div></div>
     </>
   );
 }
