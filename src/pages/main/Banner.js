@@ -1,5 +1,5 @@
 import React from 'react';
-import useScrollFadeIn from './useScrollFadeIn';
+import useScrollFadeIn from '../../hooks/useScrollFadeIn';
 import './Banner.scss';
 
 function Banner() {
@@ -13,7 +13,7 @@ function Banner() {
       <div className="contain">
         <div className="banner-box" {...animatedItem[0]}>
           <div className="banner-img">
-            <img src="./images/banner1.jpg" alt="배너 쿠키 이미지" />
+            <img src="./images/banner1.jpg" alt="메인 상품" />
           </div>
           <div className="banner-txt">
             <h2>쿠키</h2>
@@ -23,7 +23,7 @@ function Banner() {
         </div>
         <div className="banner-box" {...animatedItem[1]}>
           <div className="banner-img">
-            <img src="./images/banner2.jpg" alt="배너 쿠키 이미지" />
+            <img src="./images/banner2.jpg" alt="메인 상품" />
           </div>
           <div className="banner-txt">
             <h2>마카롱</h2>

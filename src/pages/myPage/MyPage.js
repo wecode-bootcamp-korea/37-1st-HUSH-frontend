@@ -1,11 +1,7 @@
 import React from 'react';
 
 function MyPage() {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div />;
 }
 
 export default MyPage;

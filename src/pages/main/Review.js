@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useScrollFadeIn from './useScrollFadeIn';
+import useScrollFadeIn from '../../hooks/useScrollFadeIn';
 import './Review.scss';
 
 function Review() {
@@ -33,7 +33,7 @@ function Review() {
                   <img src={review.imgOn} alt="" className="img-on" />
                   <img src={review.imgOff} alt="" className="img-off" />
                 </div>
-                <div className="txt">{review.txt}</div>
+                <div className="txt">{review.content}</div>
                 <div className="user-id">{review.userId}</div>
               </div>
             </li>
