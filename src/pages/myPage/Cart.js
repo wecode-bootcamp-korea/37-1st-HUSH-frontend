@@ -79,7 +79,6 @@ function Cart() {
     });
     navigate('/join', { state: { product_id: checkedList } });
   };
-  console.log(checkedList);
 
   return (
     <div className="cart">
