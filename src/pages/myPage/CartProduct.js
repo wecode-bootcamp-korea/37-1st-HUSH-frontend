@@ -11,8 +11,6 @@ function CartProduct({
   stock,
   handleSingleChecked,
   checkedList,
-  changeQuantity,
-  handleTotalSum,
 }) {
   const [productQuantity, setProductQuantity] = useState(quantity);
 
@@ -23,12 +21,6 @@ function CartProduct({
       alert('최소 구매가능 수량은 1개입니다.');
     } else {
       setProductQuantity(productQuantity - 1);
-      // fetch('api 주소', {
-      //   method: 'PATCH',
-      //   headers: {
-      //     authorization: '',
-      //   },
-      // });
     }
   };
 
@@ -37,17 +29,20 @@ function CartProduct({
       alert(`최대 구매가능 수량은 ${stock}개입니다.`);
     } else {
       setProductQuantity(productQuantity + 1);
-      // fetch('api 주소', {
-      //   method: 'PATCH',
-      //   headers: {
-      //     authorization: '',
-      //   },
-      // });
     }
   };
 
   useEffect(() => {
-    changeQuantity(id, 'quantity', setProductQuantity);
+    fetch(
+      `http://192.168.139.252:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
+      {
+        method: 'POST',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjUzMjA4fQ.e6QJvshaIsZpffahrwCXzpjwmBXSVB7tqPkXQiVu1cM',
+        },
+      }
+    );
   }, [productQuantity]);
 
   return (

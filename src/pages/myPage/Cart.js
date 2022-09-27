@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartProduct from './CartProduct';
 import '../myPage/Cart.scss';
 
 function Cart() {
+  const navigate = useNavigate();
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
-  const [quantityData, setQuantityData] = useState({});
 
   useEffect(() => {
     fetch('/data/cart.json', {
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
+        authorization: '',
       },
     })
       .then(res => {
@@ -46,33 +46,40 @@ function Cart() {
     }
   };
 
-  const changeQuantity = (pId, key, value) => {
-    setQuantityData({
-      ...quantityData,
-      pId: pId,
-      quantity: value,
-    });
-  };
-
   const deleteChecked = () => {
     let filtered = productData.filter(el => {
       return !checkedList.includes(el.pId);
     });
     setProductData(filtered);
+    fetch(`http://192.168.139.252:3000/cart/delete?${checkedQueryString()}`, {
+      method: 'DELETE',
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+      },
+    });
     setCheckedList([]);
   };
 
+  const checkedQueryString = () => {
+    let checkedProducts = '';
+    for (let i = 0; i < checkedList.length; i++) {
+      checkedProducts += `product_id=${checkedList[i]}&`;
+    }
+    return checkedProducts.slice(0, checkedProducts.length - 1);
+  };
+
   const orderProduct = () => {
-    fetch('api주소', {
+    fetch(`http://192.168.139.252:3000/cart/order?${checkedQueryString()}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
       },
-      body: JSON.stringify(checkedList),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    });
+    navigate('/join', { state: { product_id: checkedList } });
   };
+  console.log(checkedList);
 
   return (
     <div className="cart">
@@ -110,7 +117,6 @@ function Cart() {
               stock={product.pStock}
               handleSingleChecked={handleSingleChecked}
               checkedList={checkedList}
-              changeQuantity={changeQuantity}
             />
           ))}
         </tbody>
