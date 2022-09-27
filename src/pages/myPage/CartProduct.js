@@ -46,7 +46,7 @@ function CartProduct({
   }, [id, productQuantity]);
 
   return (
-    <tr className="cart-prosduct-content" id={id}>
+    <tr className="cart-product-content" id={id}>
       <td className="product-content-input">
         <input
           type="checkbox"
