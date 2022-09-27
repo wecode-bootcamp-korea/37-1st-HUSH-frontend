@@ -11,6 +11,7 @@ function CartProduct({
   stock,
   handleSingleChecked,
   checkedList,
+  setProductData,
 }) {
   const [productQuantity, setProductQuantity] = useState(quantity);
 
@@ -38,11 +39,12 @@ function CartProduct({
       {
         method: 'POST',
         headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjUzMjA4fQ.e6QJvshaIsZpffahrwCXzpjwmBXSVB7tqPkXQiVu1cM',
+          authorization: '',
         },
       }
-    );
+    )
+      .then(response => response.json())
+      .then(data => setProductData(data));
   }, [id, productQuantity]);
 
   return (

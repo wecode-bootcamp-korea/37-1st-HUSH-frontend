@@ -7,6 +7,7 @@ function Cart() {
   const navigate = useNavigate();
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
+  const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
     fetch('/data/cart.json', {
@@ -14,15 +15,7 @@ function Cart() {
         authorization: '',
       },
     })
-      .then(res => {
-        if (res) {
-          return res.json();
-        }
-        throw new Error('에러 발생!');
-      })
-      .catch(error => {
-        alert(error);
-      })
+      .then(response => response.json())
       .then(data => {
         setProductData(data);
       });
@@ -31,50 +24,49 @@ function Cart() {
   const handleSingleChecked = e => {
     if (e.target.checked) {
       setCheckedList([...checkedList, Number(e.target.id)]);
-    } else if (!e.target.checked) {
+    } else {
       setCheckedList(checkedList.filter(el => el !== Number(e.target.id)));
     }
   };
 
   const handleAllChecked = e => {
     if (e.target.checked) {
-      let newArr = [];
-      productData.forEach(el => newArr.push(el.pId));
-      setCheckedList(newArr);
+      let allCheckedList = [];
+      productData.forEach(el => allCheckedList.push(el.pId));
+      setCheckedList(allCheckedList);
     } else {
       setCheckedList([]);
     }
   };
 
   const deleteChecked = () => {
-    let filtered = productData.filter(el => {
-      return !checkedList.includes(el.pId);
-    });
-    setProductData(filtered);
-    fetch(`http://192.168.139.252:3000/cart/delete?${checkedQueryString()}`, {
+    fetch(`http://192.168.139.252:3000/cart?${checkedQueryString()}`, {
       method: 'DELETE',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+        authorization: '',
       },
-    });
+    })
+      .then(response => response.json())
+      .then(data => setProductData(data));
     setCheckedList([]);
   };
 
-  const likeChecked = () => {
-    fetch(`http://192.168.139.252:3000/cart?${checkedQueryString()}`, {
-      headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
-      },
-    });
-    navigate('/like');
-  };
+  useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < productData.length; i++) {
+      for (let j = 0; j < checkedList.length; j++) {
+        if (productData[i].pId === checkedList[j]) {
+          sum += productData[i].price * productData[i].quantity;
+        }
+      }
+    }
+    setTotalSum(sum);
+  }, [checkedList]);
 
   const checkedQueryString = () => {
     let checkedProducts = '';
     for (let i = 0; i < checkedList.length; i++) {
-      checkedProducts += `product_id=${checkedList[i]}&`;
+      checkedProducts += `productId=${checkedList[i]}&`;
     }
     return checkedProducts.slice(0, checkedProducts.length - 1);
   };
@@ -82,8 +74,7 @@ function Cart() {
   const orderProduct = () => {
     fetch(`http://192.168.139.252:3000/cart/order?${checkedQueryString()}`, {
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+        authorization: '',
       },
     });
     navigate('/payPage', { state: { product_id: checkedList } });
@@ -115,6 +106,7 @@ function Cart() {
         <tbody className="cart-product-body">
           {productData.map(product => (
             <CartProduct
+              setProductData={setProductData}
               key={product.pId}
               id={product.pId}
               img={product.url}
@@ -136,14 +128,9 @@ function Cart() {
         </div>
       )}
       {productData.length > 0 && (
-        <div className="checkbox-btn-wrap">
-          <button className="cart-checkbox-btn" onClick={deleteChecked}>
-            선택 삭제
-          </button>
-          <button className="cart-checkbox-btn" onClick={likeChecked}>
-            선택 찜하기
-          </button>
-        </div>
+        <button className="cart-delete-btn" onClick={deleteChecked}>
+          선택 삭제
+        </button>
       )}
 
       <ul className="cart-calc">
@@ -153,7 +140,7 @@ function Cart() {
         </li>
         <li>
           <span className="calc-title">제품합계</span>
-          <span className="calc-sum">₩ 0</span>
+          <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
         </li>
         <li>
           <span className="calc-title cal-title-shift">배송비</span>
@@ -161,7 +148,7 @@ function Cart() {
         </li>
         <li>
           <span className="calc-title">주문금액</span>
-          <span className="calc-sum">₩ 0</span>
+          <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
         </li>
       </ul>
       <div>
