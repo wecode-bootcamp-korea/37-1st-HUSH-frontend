@@ -60,7 +60,7 @@ function Like() {
     for (let i = 0; i < checkedList.length; i++) {
       checkedProducts += `productId=${checkedList[i]}&`;
     }
-    return checkedProducts.slice(0, checkedProducts.length - 1);
+    return checkedProducts.slice(0, -1);
   };
 
   return (
