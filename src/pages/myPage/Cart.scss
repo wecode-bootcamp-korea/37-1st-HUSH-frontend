@@ -131,21 +131,17 @@
   }
 }
 
-.checkbox-btn-wrap {
-  margin: 30px 810px 30px 0;
+.cart-delete-btn {
+  margin: 15px 950px 0 0;
+  padding: 10px 20px;
+  border: 1px solid #222;
+  background-color: rgb(252, 252, 252);
+  cursor: pointer;
 
-  .cart-checkbox-btn {
-    margin: 0 15px 0 0;
-    padding: 10px 20px;
-    border: 1px solid #222;
-    background-color: rgb(252, 252, 252);
-    cursor: pointer;
-
-    &:hover {
-      border: 1px solid #1ca14c;
-      background-color: #1ca14c;
-      color: white;
-    }
+  &:hover {
+    border: 1px solid #1ca14c;
+    background-color: #1ca14c;
+    color: white;
   }
 }
 
