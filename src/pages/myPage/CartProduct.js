@@ -43,7 +43,7 @@ function CartProduct({
         },
       }
     );
-  }, [productQuantity]);
+  }, [id, productQuantity]);
 
   return (
     <tr className="cart-prosduct-content" id={id}>
