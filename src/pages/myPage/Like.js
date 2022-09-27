@@ -13,15 +13,7 @@ function Like() {
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
       },
     })
-      .then(res => {
-        if (res) {
-          return res.json();
-        }
-        throw new Error('에러 발생!');
-      })
-      .catch(error => {
-        alert(error);
-      })
+      .then(response => response.json())
       .then(data => {
         setProductData(data);
       });
@@ -50,7 +42,25 @@ function Like() {
       return !checkedList.includes(el.pId);
     });
     setProductData(filtered);
+    fetch(
+      `http://192.168.139.223:3001/user/like/deletelike?${checkedQueryString()}`,
+      {
+        method: 'DELETE',
+        headers: {
+          authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
+        },
+      }
+    );
     setCheckedList([]);
+  };
+
+  const checkedQueryString = () => {
+    let checkedProducts = '';
+    for (let i = 0; i < checkedList.length; i++) {
+      checkedProducts += `productId=${checkedList[i]}&`;
+    }
+    return checkedProducts.slice(0, checkedProducts.length - 1);
   };
 
   return (
@@ -89,9 +99,17 @@ function Like() {
           ))}
         </tbody>
       </table>
-      <button className="like-delete-btn" onClick={deleteChecked}>
-        선택 삭제
-      </button>
+      {productData.length < 1 && (
+        <div className="product-empty">
+          <img className="empty-img" src="/images/like/sad.png" alt="아이콘" />
+          <p className="empty-text">아직 찜한 상품이 없네요!</p>
+        </div>
+      )}
+      {productData.length > 0 && (
+        <button className="like-delete-btn" onClick={deleteChecked}>
+          선택 삭제
+        </button>
+      )}
     </div>
   );
 }
