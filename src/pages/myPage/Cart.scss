@@ -133,18 +133,19 @@
 
 .checkbox-btn-wrap {
   margin: 30px 810px 30px 0;
-}
-.cart-checkbox-btn {
-  margin: 0 15px 0 0;
-  padding: 10px 20px;
-  border: 1px solid #222;
-  background-color: rgb(252, 252, 252);
-  cursor: pointer;
 
-  &:hover {
-    border: 1px solid #1ca14c;
-    background-color: #1ca14c;
-    color: white;
+  .cart-checkbox-btn {
+    margin: 0 15px 0 0;
+    padding: 10px 20px;
+    border: 1px solid #222;
+    background-color: rgb(252, 252, 252);
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid #1ca14c;
+      background-color: #1ca14c;
+      color: white;
+    }
   }
 }
 
@@ -174,29 +175,42 @@
   }
 }
 
-.cart-shop-btn {
+.cart-btn {
   margin: 30px 15px 100px 0;
   padding: 20px 0;
   width: 230px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #1ca14c;
+    background-color: #1ca14c;
+    color: white;
+  }
+}
+
+.shop-btn {
   border: 1px solid #222;
   background-color: rgb(252, 252, 252);
-  font-size: 16px;
 }
 
-.cart-pay-btn {
-  margin: 30px 0 100px 0;
-  padding: 20px 0;
-  width: 230px;
+.pay-btn {
   border: 1px solid #222;
   background-color: #222;
-  font-size: 16px;
   color: white;
 }
 
-.cart-shop-btn:hover,
-.cart-pay-btn:hover {
-  cursor: pointer;
-  border: 1px solid #1ca14c;
-  background-color: #1ca14c;
-  color: white;
+.product-empty {
+  padding: 110px 0 70px;
+  text-align: center;
+
+  .empty-img {
+    width: 60px;
+  }
+
+  .empty-text {
+    margin: 20px;
+    font-size: 18px;
+    color: #1ca14c;
+  }
 }

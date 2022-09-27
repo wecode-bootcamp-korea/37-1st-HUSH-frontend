@@ -129,14 +129,23 @@ function Cart() {
           ))}
         </tbody>
       </table>
-      <div className="checkbox-btn-wrap">
-        <button className="cart-checkbox-btn" onClick={deleteChecked}>
-          선택 삭제
-        </button>
-        <button className="cart-checkbox-btn" onClick={likeChecked}>
-          선택 찜하기
-        </button>
-      </div>
+      {productData.length < 1 && (
+        <div className="product-empty">
+          <img className="empty-img" src="/images/like/sad.png" alt="아이콘" />
+          <p className="empty-text">아직 장바구니에 담긴 제품이 없네요!</p>
+        </div>
+      )}
+      {productData.length > 0 && (
+        <div className="checkbox-btn-wrap">
+          <button className="cart-checkbox-btn" onClick={deleteChecked}>
+            선택 삭제
+          </button>
+          <button className="cart-checkbox-btn" onClick={likeChecked}>
+            선택 찜하기
+          </button>
+        </div>
+      )}
+
       <ul className="cart-calc">
         <li>
           <span className="calc-title">선택제품</span>
@@ -156,8 +165,8 @@ function Cart() {
         </li>
       </ul>
       <div>
-        <button className="cart-shop-btn">쇼핑 계속하기</button>
-        <button className="cart-pay-btn" onClick={orderProduct}>
+        <button className="cart-btn shop-btn">쇼핑 계속하기</button>
+        <button className="cart-btn pay-btn" onClick={orderProduct}>
           주문하기
         </button>
       </div>
