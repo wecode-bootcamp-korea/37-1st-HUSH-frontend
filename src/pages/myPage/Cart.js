@@ -129,12 +129,14 @@ function Cart() {
           ))}
         </tbody>
       </table>
-      <button className="cart-delete-btn" onClick={deleteChecked}>
-        선택 삭제
-      </button>
-      <button className="cart-like-btn" onClick={likeChecked}>
-        선택 찜하기
-      </button>
+      <div className="checkbox-btn-wrap">
+        <button className="cart-checkbox-btn" onClick={deleteChecked}>
+          선택 삭제
+        </button>
+        <button className="cart-checkbox-btn" onClick={likeChecked}>
+          선택 찜하기
+        </button>
+      </div>
       <ul className="cart-calc">
         <li>
           <span className="calc-title">선택제품</span>

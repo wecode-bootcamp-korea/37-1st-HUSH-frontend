@@ -97,6 +97,11 @@
       background-size: 12px;
       background-color: transparent;
       border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-image: url('/asset/images/cart_minus_hover.png');
+      }
     }
 
     .quantity-plus-btn {
@@ -107,15 +112,11 @@
       background-size: 12px;
       background-color: transparent;
       border: none;
-    }
+      cursor: pointer;
 
-    .quantity-minus-btn:hover {
-      background-image: url('/asset/images/cart_minus_hover.png');
-      cursor: pointer;
-    }
-    .quantity-plus-btn:hover {
-      background-image: url('/asset/images/cart_add_hover.png');
-      cursor: pointer;
+      &:hover {
+        background-image: url('/asset/images/cart_add_hover.png');
+      }
     }
   }
 
@@ -130,24 +131,27 @@
   }
 }
 
-.cart-delete-btn {
-  margin: 15px 970px 0 0;
+.checkbox-btn-wrap {
+  margin: 30px 810px 30px 0;
+}
+.cart-checkbox-btn {
+  margin: 0 15px 0 0;
   padding: 10px 20px;
   border: 1px solid #222;
   background-color: rgb(252, 252, 252);
-}
-
-.cart-delete-btn:hover {
   cursor: pointer;
-  border: 1px solid #1ca14c;
-  background-color: #1ca14c;
-  color: white;
+
+  &:hover {
+    border: 1px solid #1ca14c;
+    background-color: #1ca14c;
+    color: white;
+  }
 }
 
 .cart-calc {
   margin: 30px 0 40px 0;
   padding: 30px 0;
-  width: 1080px;
+  width: 1060px;
   display: flex;
   justify-content: space-around;
   background-color: rgb(250, 250, 250);
