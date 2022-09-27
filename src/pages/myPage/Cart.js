@@ -77,7 +77,7 @@ function Cart() {
         authorization: '',
       },
     });
-    navigate('/payPage', { state: { product_id: checkedList } });
+    navigate('/paypage', { state: { product_id: checkedList } });
   };
 
   return (
