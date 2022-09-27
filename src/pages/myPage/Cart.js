@@ -61,6 +61,16 @@ function Cart() {
     setCheckedList([]);
   };
 
+  const likeChecked = () => {
+    fetch(`http://192.168.139.252:3000/cart?${checkedQueryString()}`, {
+      headers: {
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+      },
+    });
+    navigate('/like');
+  };
+
   const checkedQueryString = () => {
     let checkedProducts = '';
     for (let i = 0; i < checkedList.length; i++) {
@@ -71,13 +81,12 @@ function Cart() {
 
   const orderProduct = () => {
     fetch(`http://192.168.139.252:3000/cart/order?${checkedQueryString()}`, {
-      method: 'POST',
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
       },
     });
-    navigate('/join', { state: { product_id: checkedList } });
+    navigate('/payPage', { state: { product_id: checkedList } });
   };
 
   return (
@@ -122,6 +131,9 @@ function Cart() {
       </table>
       <button className="cart-delete-btn" onClick={deleteChecked}>
         선택 삭제
+      </button>
+      <button className="cart-like-btn" onClick={likeChecked}>
+        선택 찜하기
       </button>
       <ul className="cart-calc">
         <li>
