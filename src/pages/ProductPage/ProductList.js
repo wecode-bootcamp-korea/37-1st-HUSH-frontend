@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 const ProductChocolate = ({ product }) => {
-  const [soldOutItem, setSoldOut] = useState(0);
-  const { stock, name, thumbnail_image_url, price, category_name } = product;
+  const { stock, name, thumbnail_image_url, price, category_id } = product;
 
-  // const soldOutItem = (key) => {
-  //   if (.count === 0) {
-  //     return alert('품절입니다');
-  //   }
-  const soldOut = event => {
-    setSoldOut(event.target.value);
-    console.log('클릿');
-    if (soldOutItem === undefined) {
-      alert('품절되었습니다');
-    }
-  };
   return (
-    <div className="product-product-inner-box">
-      <a href="https://www.naver.com" onClick={soldOut}>
-        {/* <button href="https://www.naver.com" onClick={soldOut}> */}
+    <div
+      className={`product-product-inner-box ${
+        stock === '0' ? 'product-sold-out' : ''
+      }`}
+    >
+      <a href="https://www.naver.com" className="product-link">
         <div className="thumb">
           <img
             className="product-product-image"
@@ -27,20 +17,14 @@ const ProductChocolate = ({ product }) => {
             alt="상품이미지"
           />
         </div>
-        {/* </button> */}
+        <div className="product-product-info">
+          <p className="bold">{name}</p>
+          <p>{category_id}</p>
+          <p>{price}</p>
+        </div>
       </a>
-      <div className="product-product-info">
-        <p className="bold">{name}</p>
-        <p>{category_name}</p>
-        <p>{price}</p>
-      </div>
     </div>
   );
 };
 
 export default ProductChocolate;
-
-// const soldOutItem = (key) ={
-//   if(key.count === 0 ? 'soldOut': '')
-
-// }

@@ -9,8 +9,6 @@ const TAB_LIST = ['all', '초콜릿', '캔디', '쿠키', '젤리', '케이크']
 function Product() {
   const [currTab, setCurrTab] = useState('all');
   const [products, setProducts] = useState([]);
-  const [sort, setSort] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownMenu, setDropDownMenu] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const offset = searchParams.get('offset');
@@ -21,17 +19,7 @@ function Product() {
     setSearchParams(searchParams);
   };
 
-  const tabClickHandler = index => {
-    setActiveIndex(index);
-    setCurrTab.filter(item => item.setCurrTab);
-  };
-
-  const showDropDown = () => {
-    setDropDownMenu(!dropdownMenu);
-  };
-
   const filterItemIncrease = event => {
-    setSort(event.target.value);
     const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
       return a[key] - b[key];
@@ -41,7 +29,6 @@ function Product() {
   };
 
   const filterItemDecrease = event => {
-    setSort(event.target.value);
     const priceSorting = [...products];
     const priceCompare = key => (a, b) => {
       return b[key] - a[key];
@@ -140,7 +127,6 @@ function Product() {
         </div>
       </div>
 
-      {/* footer button */}
       <div className="product-footer-button">
         <button onClick={() => movePage(1)}>1</button>
         <button onClick={() => movePage(2)}>2</button>
