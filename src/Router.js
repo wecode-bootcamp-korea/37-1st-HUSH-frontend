@@ -22,7 +22,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/paypage" element={<PayPage />} />
         <Route path="/product" element={<Product />} />
@@ -36,3 +36,4 @@ const Router = () => {
   );
 };
 export default Router;
+
