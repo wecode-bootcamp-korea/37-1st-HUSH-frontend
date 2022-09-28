@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import LikeProduct from './LikeProduct';
-import '../myPage/Like.scss';
+import './Like.scss';
 
 function Like() {
+  const accessToken = localStorage.getItem('accessToken');
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
 
   useEffect(() => {
     fetch('http://172.20.10.4:3000/user/like', {
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
+        authorization: accessToken,
       },
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('에러 발생!');
+      })
+      .catch(error => {
+        alert(error);
+      })
       .then(data => {
         setProductData(data.likes);
       });
@@ -38,17 +46,20 @@ function Like() {
   };
 
   const deleteChecked = () => {
-    fetch(
-      `http://172.20.10.4:3000/user/like/deletelike?${checkedQueryString()}`,
-      {
-        method: 'DELETE',
-        headers: {
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
-        },
-      }
-    );
-    window.location.reload();
+    if (checkedList.length > 0) {
+      fetch(
+        `http://172.20.10.4:3000/user/like/deletelike?${checkedQueryString()}`,
+        {
+          method: 'DELETE',
+          headers: {
+            authorization: accessToken,
+          },
+        }
+      );
+      window.location.reload();
+    } else {
+      alert('삭제할 상품을 선택해주세요!');
+    }
   };
 
   const checkedQueryString = () => {

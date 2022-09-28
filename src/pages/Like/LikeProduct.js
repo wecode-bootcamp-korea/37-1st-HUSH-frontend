@@ -1,5 +1,5 @@
 import React from 'react';
-import '../myPage/Like.scss';
+import './LikeProduct.scss';
 
 function LikeProduct({
   id,
