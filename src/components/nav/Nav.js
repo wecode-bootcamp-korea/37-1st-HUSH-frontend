@@ -31,7 +31,7 @@ function Nav() {
   const { point } = pointInput;
 
   useEffect(() => {
-    fetch('http://192.168.228.223:3001/user/point', {
+    fetch('http://192.168.87.223:3001/user/point', {
       headers: {
         authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
@@ -95,7 +95,12 @@ function Nav() {
             </Link>
           </li>
           <li className="login-page-box">
-            <a href="#!">
+            <a
+              href="#!"
+              onClick={e => {
+                e.preventDefault();
+              }}
+            >
               <img
                 className="login-page-btn"
                 onMouseOver={() => setIsMenuImg(true)}
