@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductChocolate = ({ product }) => {
-  const { stock, name, thumbnail_image_url, price, category_id } = product;
+  const { id, stock, name, thumbnail_image_url, price, category_name } =
+    product;
 
   return (
     <div
@@ -9,7 +11,7 @@ const ProductChocolate = ({ product }) => {
         stock === '0' ? 'product-sold-out' : ''
       }`}
     >
-      <a href="https://www.naver.com" className="product-link">
+      <Link key={id} to={`/detail/${id}`} className="product-link">
         <div className="thumb">
           <img
             className="product-product-image"
@@ -19,10 +21,10 @@ const ProductChocolate = ({ product }) => {
         </div>
         <div className="product-product-info">
           <p className="bold">{name}</p>
-          <p>{category_id}</p>
-          <p>{price}</p>
+          <p>{category_name}</p>
+          <p>₩{price}</p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

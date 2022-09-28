@@ -11,8 +11,9 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [dropdownMenu, setDropDownMenu] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const offset = searchParams.get('offset');
+  // const offset = searchParams.get('offset');
   const limit = 12;
+  const offset = 0;
 
   const movePage = pageNum => {
     searchParams.set('offset', (pageNum - 1) * 10);
@@ -38,10 +39,10 @@ function Product() {
   };
 
   useEffect(() => {
-    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${10}`)
+    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${3}`)
     fetch(`data/${currTab}.json`)
       // fetch(
-      //   `http://192.168.228.223:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
+      //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
       //   {
       //     headers: {
       //       authorization:
