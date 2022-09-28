@@ -40,14 +40,16 @@ function Cart() {
   };
 
   const deleteChecked = () => {
-    fetch(`http://192.168.139.252:3000/cart?${checkedQueryString()}`, {
+    fetch(`http://172.20.10.6:3000/cart?${checkedQueryString()}`, {
       method: 'DELETE',
       headers: {
-        authorization: '',
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQyNzQ1MTl9.c4sn6zL4HKrFHYxFdYD2Ao1bCyFTTSJIRxIpf5igSX8',
       },
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data.result);
         setProductData(data.result);
       });
     setCheckedList([]);
