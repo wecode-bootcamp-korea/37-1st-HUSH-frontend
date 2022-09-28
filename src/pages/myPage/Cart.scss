@@ -89,30 +89,25 @@
       font-size: 17px;
     }
 
-    .quantity-minus-btn {
-      margin: 0 0 0 0;
+    .quantity-btn {
       width: 12px;
       height: 12px;
-      background: url('/asset/images/cart_minus.png');
       background-size: 12px;
       background-color: transparent;
       border: none;
       cursor: pointer;
+    }
+
+    .minus-btn {
+      background: url('/asset/images/cart_minus.png');
 
       &:hover {
         background-image: url('/asset/images/cart_minus_hover.png');
       }
     }
 
-    .quantity-plus-btn {
-      margin: 0 0 0 0;
-      width: 12px;
-      height: 12px;
+    .plus-btn {
       background-image: url('/asset/images/cart_add.png');
-      background-size: 12px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
 
       &:hover {
         background-image: url('/asset/images/cart_add_hover.png');
