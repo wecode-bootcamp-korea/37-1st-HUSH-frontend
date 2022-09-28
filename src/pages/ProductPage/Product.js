@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductList from './ProductList';
-import Dropdown from './Dropdown';
+import Dropdown from './ProductDropdown';
 import './Product.scss';
 
 const TAB_LIST = ['all', '초콜릿', '캔디', '쿠키', '젤리', '케이크'];
 
 function Product() {
   const [currTab, setCurrTab] = useState('all');
-  const [products, setProducts] = useState([]);
+  const [productLists, setProductLists] = useState([]);
   const [dropdownMenu, setDropDownMenu] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   // const offset = searchParams.get('offset');
+  // const limit = searchParams.get('limit');
   const limit = 12;
   const offset = 0;
 
@@ -21,21 +22,21 @@ function Product() {
   };
 
   const filterItemIncrease = event => {
-    const priceSorting = [...products];
+    const priceSorting = [...productLists];
     const priceCompare = key => (a, b) => {
       return a[key] - b[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setProducts(priceSorting);
+    setProductLists(priceSorting);
   };
 
   const filterItemDecrease = event => {
-    const priceSorting = [...products];
+    const priceSorting = [...productLists];
     const priceCompare = key => (a, b) => {
       return b[key] - a[key];
     };
     priceSorting.sort(priceCompare('price'));
-    setProducts(priceSorting);
+    setProductLists(priceSorting);
   };
 
   useEffect(() => {
@@ -45,13 +46,12 @@ function Product() {
       //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
       //   {
       //     headers: {
-      //       authorization:
-      //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
+      //      const accessToken = localStorage.getItem('token');
       //     },
       //   }
       // )
       .then(response => response.json())
-      .then(result => setProducts(result));
+      .then(result => setProductLists(result));
   }, [currTab, offset, limit]);
 
   return (
@@ -118,7 +118,7 @@ function Product() {
 
       <div className="detail-product-wrap">
         <div className="detail-product-middle-box">
-          {products.map((product, all) => {
+          {productLists.map((product, all) => {
             return (
               <div className="detail-product-outer-cont" key={all}>
                 <ProductList product={product} />

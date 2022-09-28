@@ -5,7 +5,7 @@
     "price": "3000",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1610450949065-1f2841536c88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hvY29sYXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -16,7 +16,7 @@
     "price": "2500",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -27,7 +27,7 @@
     "price": "2500",
     "stock": "2",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -38,7 +38,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -49,7 +49,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -60,7 +60,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -71,7 +71,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -82,7 +82,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://image.shutterstock.com/image-photo/close-chocolate-bar-isolated-on-600w-524456035.jpg",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -93,7 +93,7 @@
     "price": "3000",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -104,7 +104,7 @@
     "price": "2500",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -115,7 +115,7 @@
     "price": "2500",
     "stock": "2",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -126,7 +126,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿"
+    "category_name": "초콜릿"
   },
 
   {
@@ -135,7 +135,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -146,7 +146,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -157,7 +157,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -168,7 +168,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -179,7 +179,7 @@
     "price": "3000",
     "stock": "50",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -190,7 +190,7 @@
     "price": "2500",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -201,7 +201,7 @@
     "price": "2500",
     "stock": "2",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -212,7 +212,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -223,7 +223,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -234,7 +234,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -245,7 +245,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -256,7 +256,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -267,7 +267,7 @@
     "price": "3000",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -278,7 +278,7 @@
     "price": "2500",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -289,7 +289,7 @@
     "price": "2500",
     "stock": "2",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -300,7 +300,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -311,7 +311,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -322,7 +322,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -333,7 +333,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -344,7 +344,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1600147566401-c2056eb69479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29va2llfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -354,7 +354,7 @@
     "price": "3000",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -365,7 +365,7 @@
     "price": "2500",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -376,7 +376,7 @@
     "price": "2500",
     "stock": "2",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -387,7 +387,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -398,7 +398,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -409,7 +409,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -420,7 +420,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   },
@@ -431,7 +431,7 @@
     "price": "3400",
     "stock": "1",
     "thumbnail_image_url": "https://images.unsplash.com/photo-1605125208383-694750af8f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVsbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
-    "category_id": "초콜릿",
+    "category_name": "초콜릿",
     "create_at": "2022년 06월 07일",
     "update_at": "미사용 데이터"
   }

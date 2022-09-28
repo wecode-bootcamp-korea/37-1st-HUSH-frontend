@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ProductList.scss';
 
-const ProductChocolate = ({ product }) => {
+const ProductList = ({ product }) => {
   const { id, stock, name, thumbnail_image_url, price, category_name } =
     product;
 
@@ -22,11 +23,11 @@ const ProductChocolate = ({ product }) => {
         <div className="product-product-info">
           <p className="bold">{name}</p>
           <p>{category_name}</p>
-          <p>₩{price}</p>
+          <p>₩ {price}</p>
         </div>
       </Link>
     </div>
   );
 };
 
-export default ProductChocolate;
+export default ProductList;
