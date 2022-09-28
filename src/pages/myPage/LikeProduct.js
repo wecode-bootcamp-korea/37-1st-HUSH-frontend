@@ -31,7 +31,14 @@ function LikeProduct({
         ₩ {price.toLocaleString('ko-KR')}
       </td>
       <td className="product-content-select">
-        <button className="content-select-btn">제품보기</button>
+        <button
+          className="content-select-btn"
+          onClick={() => {
+            return alert('준비중입니다!');
+          }}
+        >
+          제품보기
+        </button>
       </td>
     </tr>
   );

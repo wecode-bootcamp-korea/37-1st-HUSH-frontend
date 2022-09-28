@@ -7,15 +7,15 @@ function Like() {
   const [checkedList, setCheckedList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/cart.json', {
+    fetch('http://172.20.10.4:3000/user/like', {
       headers: {
         authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
       },
     })
       .then(response => response.json())
       .then(data => {
-        setProductData(data);
+        setProductData(data.likes);
       });
   }, []);
 
@@ -38,21 +38,17 @@ function Like() {
   };
 
   const deleteChecked = () => {
-    let filtered = productData.filter(el => {
-      return !checkedList.includes(el.pId);
-    });
-    setProductData(filtered);
     fetch(
-      `http://192.168.139.223:3001/user/like/deletelike?${checkedQueryString()}`,
+      `http://172.20.10.4:3000/user/like/deletelike?${checkedQueryString()}`,
       {
         method: 'DELETE',
         headers: {
           authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjYzOTE2MjQ3fQ.au4JgHfu9_Js-l3eaPHyh-UrsAGQ1Wily3XSKh3VzH4',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
         },
       }
     );
-    setCheckedList([]);
+    window.location.reload();
   };
 
   const checkedQueryString = () => {
@@ -87,11 +83,11 @@ function Like() {
         <tbody className="like-product-body">
           {productData.map(product => (
             <LikeProduct
-              key={product.pId}
-              id={product.pId}
-              img={product.url}
-              name={product.pName}
-              category={product.cName}
+              key={product.productId}
+              id={product.productId}
+              img={product.thumbnail_image_url}
+              name={product.productName}
+              category={product.categoryName}
               price={product.price}
               handleSingleChecked={handleSingleChecked}
               checkedList={checkedList}
