@@ -47,7 +47,9 @@ function Cart() {
       },
     })
       .then(response => response.json())
-      .then(data => setProductData(data));
+      .then(data => {
+        setProductData(data.result);
+      });
     setCheckedList([]);
   };
 
@@ -72,11 +74,6 @@ function Cart() {
   };
 
   const orderProduct = () => {
-    fetch(`http://192.168.139.252:3000/cart/order?${checkedQueryString()}`, {
-      headers: {
-        authorization: '',
-      },
-    });
     navigate('/paypage', { state: { product_id: checkedList } });
   };
 
@@ -111,7 +108,7 @@ function Cart() {
               id={product.pId}
               img={product.url}
               name={product.pName}
-              category={product.cName}
+              category={product.cateName}
               quantity={product.quantity}
               price={product.price}
               stock={product.pStock}

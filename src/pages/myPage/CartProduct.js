@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../myPage/Cart.scss';
 
 function CartProduct({
@@ -22,6 +22,20 @@ function CartProduct({
       alert('최소 구매가능 수량은 1개입니다.');
     } else {
       setProductQuantity(productQuantity - 1);
+      fetch(
+        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
+        {
+          method: 'POST',
+          headers: {
+            authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+          },
+        }
+      )
+        .then(response => response.json())
+        .then(data => {
+          setProductData(data.result);
+        });
     }
   };
 
@@ -30,22 +44,22 @@ function CartProduct({
       alert(`최대 구매가능 수량은 ${stock}개입니다.`);
     } else {
       setProductQuantity(productQuantity + 1);
+      fetch(
+        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
+        {
+          method: 'POST',
+          headers: {
+            authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+          },
+        }
+      )
+        .then(response => response.json())
+        .then(data => {
+          setProductData(data.result);
+        });
     }
   };
-
-  useEffect(() => {
-    fetch(
-      `http://192.168.139.252:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
-      {
-        method: 'POST',
-        headers: {
-          authorization: '',
-        },
-      }
-    )
-      .then(response => response.json())
-      .then(data => setProductData(data));
-  }, [id, productQuantity]);
 
   return (
     <tr className="cart-product-content" id={id}>
