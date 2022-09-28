@@ -139,12 +139,12 @@ function Cart() {
           <span className="calc-title">제품합계</span>
           <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
         </li>
-        <li>
-          <span className="calc-title cal-title-shift">배송비</span>
+        <li className="title-wrap">
+          <span className="calc-title title-shift">배송비</span>
           <span className="calc-sum">무료</span>
         </li>
-        <li>
-          <span className="calc-title">주문금액</span>
+        <li className="title-wrap">
+          <span className="calc-title title-price">주문금액</span>
           <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
         </li>
       </ul>

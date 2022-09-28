@@ -158,6 +158,24 @@
     color: #757575;
   }
 
+  .title-wrap {
+    position: relative;
+  }
+
+  .title-shift::before {
+    position: absolute;
+    left: -75px;
+    content: '+';
+    font-size: 40px;
+  }
+
+  .title-price::before {
+    position: absolute;
+    left: -75px;
+    content: '=';
+    font-size: 40px;
+  }
+
   .calc-count {
     margin: 0 0 0 20px;
     font-size: 22px;
