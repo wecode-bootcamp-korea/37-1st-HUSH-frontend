@@ -4,8 +4,8 @@ import CartProduct from './CartProduct';
 import './Cart.scss';
 
 function Cart() {
+  const accessToken = localStorage.getItem('accessToken');
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem('token');
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
 
@@ -48,33 +48,36 @@ function Cart() {
   };
 
   const deleteChecked = () => {
-    fetch(`http://172.20.10.6:3000/cart?${checkedQueryString()}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: accessToken,
-      },
-    })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('에러 발생!');
+    if (checkedList.length > 0) {
+      fetch(`http://172.20.10.6:3000/cart?${checkedQueryString()}`, {
+        method: 'DELETE',
+        headers: {
+          authorization: accessToken,
+        },
       })
-      .catch(error => {
-        alert(error);
-      })
-      .then(data => {
-        setProductData(data.result);
-      });
-    setCheckedList([]);
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('에러 발생!');
+        })
+        .catch(error => {
+          alert(error);
+        })
+        .then(data => {
+          setProductData(data.result);
+        });
+      setCheckedList([]);
+    } else {
+      alert('삭제할 상품을 선택해주세요!');
+    }
   };
 
-  let sum = 0;
-
+  let totalPrice = 0;
   for (let i = 0; i < productData.length; i++) {
     for (let j = 0; j < checkedList.length; j++) {
       if (productData[i].pId === checkedList[j]) {
-        sum += productData[i].price * productData[i].quantity;
+        totalPrice += productData[i].price * productData[i].quantity;
       }
     }
   }
@@ -84,11 +87,15 @@ function Cart() {
     for (let i = 0; i < checkedList.length; i++) {
       checkedProducts += `productId=${checkedList[i]}&`;
     }
-    return checkedProducts.slice(0, checkedProducts.length - 1);
+    return checkedProducts.slice(0, -1);
   };
 
   const orderProduct = () => {
-    navigate('/paypage', { state: { product_id: checkedList } });
+    if (checkedList.length > 0) {
+      navigate('/paypage', { state: { product_id: checkedList } });
+    } else {
+      alert('주문할 상품을 선택해주세요!');
+    }
   };
 
   return (
@@ -118,6 +125,7 @@ function Cart() {
           {productData.map(product => (
             <CartProduct
               setProductData={setProductData}
+              accessToken={accessToken}
               key={product.pId}
               id={product.pId}
               img={product.url}
@@ -151,7 +159,9 @@ function Cart() {
         </li>
         <li>
           <span className="calc-title">제품합계</span>
-          <span className="calc-sum">₩ {sum.toLocaleString('ko-KR')}</span>
+          <span className="calc-sum">
+            ₩ {totalPrice.toLocaleString('ko-KR')}
+          </span>
         </li>
         <li className="title-wrap">
           <span className="calc-title title-shift">배송비</span>
@@ -159,11 +169,15 @@ function Cart() {
         </li>
         <li className="title-wrap">
           <span className="calc-title title-price">주문금액</span>
-          <span className="calc-sum">₩ {sum.toLocaleString('ko-KR')}</span>
+          <span className="calc-sum">
+            ₩ {totalPrice.toLocaleString('ko-KR')}
+          </span>
         </li>
       </ul>
       <div>
-        <button className="cart-btn shop-btn">쇼핑 계속하기</button>
+        <button className="cart-btn shop-btn" onClick={() => navigate('/main')}>
+          쇼핑 계속하기
+        </button>
         <button className="cart-btn pay-btn" onClick={orderProduct}>
           주문하기
         </button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CartProduct.scss';
 
 function CartProduct({
@@ -12,49 +12,64 @@ function CartProduct({
   handleSingleChecked,
   checkedList,
   setProductData,
+  accessToken,
 }) {
-  const [productQuantity, setProductQuantity] = useState(quantity);
+  let totalSum = quantity * price;
 
-  let totalSum = productQuantity * price;
-
-  const decreaseQuantity = e => {
-    if (productQuantity <= 1) {
+  const decreaseQuantity = () => {
+    if (quantity <= 1) {
       alert('최소 구매가능 수량은 1개입니다.');
     } else {
-      setProductQuantity(productQuantity - 1);
       fetch(
-        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
+        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${
+          quantity - 1
+        }`,
         {
           method: 'POST',
           headers: {
-            authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+            authorization: accessToken,
           },
         }
       )
-        .then(response => response.json())
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('에러 발생!');
+        })
+        .catch(error => {
+          alert(error);
+        })
         .then(data => {
           setProductData(data.result);
         });
     }
   };
 
-  const increaseQuantity = e => {
-    if (productQuantity >= stock) {
+  const increaseQuantity = () => {
+    if (quantity >= stock) {
       alert(`최대 구매가능 수량은 ${stock}개입니다.`);
     } else {
-      setProductQuantity(productQuantity + 1);
       fetch(
-        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${productQuantity}`,
+        `http://172.20.10.6:3000/cart/control?productId=${id}&quantity=${
+          quantity + 1
+        }`,
         {
           method: 'POST',
           headers: {
-            authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjY0MjQ3MDUxfQ.fQgK5vlmrDiR7ulT-FJLKOyFKu0n5BwesGs885z82To',
+            authorization: accessToken,
           },
         }
       )
-        .then(response => response.json())
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('에러 발생!');
+        })
+        .catch(error => {
+          alert(error);
+        })
         .then(data => {
           setProductData(data.result);
         });
@@ -62,7 +77,7 @@ function CartProduct({
   };
 
   return (
-    <tr className="cart-product-content" id={id}>
+    <tr className="cart-product-content">
       <td className="product-content-input">
         <input
           type="checkbox"
@@ -80,7 +95,7 @@ function CartProduct({
       </td>
       <td className="product-content-quantity">
         <button className="quantity-btn minus-btn" onClick={decreaseQuantity} />
-        <span className="quantity-count">{productQuantity}</span>
+        <span className="quantity-count">{quantity}</span>
         <button className="quantity-btn plus-btn" onClick={increaseQuantity} />
       </td>
       <td className="product-content-price">
