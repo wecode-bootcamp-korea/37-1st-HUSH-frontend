@@ -11,7 +11,13 @@ function DetailTopInfo({
   const [number, setNumber] = useState(1);
 
   const onIncrease = () => {
-    // TODO: stock check
+    if (number === stock) {
+      setNumber(stock);
+      alert(`최대 구매 가능 수량은 ${stock}개 입니다.`);
+
+      return;
+    }
+
     setNumber(number + 1);
   };
 
@@ -70,7 +76,7 @@ function DetailTopInfo({
           <span className="total-title">총 합계 금액</span>
           <p>￦ {calculatePrice}</p>
         </div>
-        <div className="prd-bbutton-box">
+        <div className="prd-button-box">
           <button type="button" className="lick-btn">
             <img src="./images/heart.png" alt="찜 목록" />
           </button>

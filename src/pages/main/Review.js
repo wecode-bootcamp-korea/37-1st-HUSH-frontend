@@ -30,11 +30,14 @@ function Review() {
               <div className="box">
                 <h2>{review.title}</h2>
                 <div className="thumb">
-                  <img src={review.imgOn} alt="" className="img-on" />
-                  <img src={review.imgOff} alt="" className="img-off" />
+                  <img src={review.imgOn} alt="메인 상품" className="img-on" />
+                  <img
+                    src={review.imgOff}
+                    alt="메인 상품"
+                    className="img-off"
+                  />
                 </div>
                 <div className="txt">{review.content}</div>
-                <div className="user-id">{review.userId}</div>
               </div>
             </li>
           ))}

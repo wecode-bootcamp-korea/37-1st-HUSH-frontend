@@ -1,36 +1,36 @@
 [
   {
     "id": 1,
-    "title": "매끈 매끈",
-    "imgOn": "./images/prod1.jpg",
-    "imgOff": "./images/prod2.jpg",
-    "content": "스크럽 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
+    "title": "매끈 매끈 젤리",
+    "imgOn": "./images/main/jelly1.jpeg",
+    "imgOff": "./images/main/jelly1_1.jpeg",
+    "content": "젤리 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
     "userId": "rubi0624@naver.com",
     "date": "2022-02-17"
   },
   {
     "id": 2,
-    "title": "러쉬로운 향",
-    "imgOn": "./images/prod1.jpg",
-    "imgOff": "./images/prod2.jpg",
+    "title": "초콜렛 향",
+    "imgOn": "./images/main/chocolate1.jpeg",
+    "imgOff": "./images/main/chocolate1_1.jpeg",
     "content": "스크럽 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
     "userId": "rubi0624@naver.com",
     "date": "2022-02-17"
   },
   {
     "id": 3,
-    "title": "부드러운 살결",
-    "imgOn": "./images/prod1.jpg",
-    "imgOff": "./images/prod2.jpg",
+    "title": "부드러운 사탕",
+    "imgOn": "./images/main/candy1_1.jpeg",
+    "imgOff": "./images/main/candy1.jpeg",
     "content": "스크럽 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
     "userId": "rubi0624@naver.com",
     "date": "2022-02-17"
   },
   {
     "id": 4,
-    "title": "은은한 플로럴",
-    "imgOn": "./images/prod1.jpg",
-    "imgOff": "./images/prod2.jpg",
+    "title": "은은한 케이크",
+    "imgOn": "./images/main/cake1_1.jpeg",
+    "imgOff": "./images/main/cake1.jpeg",
     "content": "스크럽 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
     "userId": "rubi0624@naver.com",
     "date": "2022-02-17"
@@ -38,8 +38,8 @@
   {
     "id": 5,
     "title": "인생의 즐거움",
-    "imgOn": "./images/prod1.jpg",
-    "imgOff": "./images/prod2.jpg",
+    "imgOn": "./images/main/cookie1.jpeg",
+    "imgOff": "./images/main/cookie1_1.jpeg",
     "content": "스크럽 진짜 좋아하는데 촉촉하고 부드러워요 몽글몽글한 크림 제형인데 생각보다 스크럽이 잘 됩니다.",
     "userId": "rubi0624@naver.com",
     "date": "2022-02-17"
