@@ -5,13 +5,14 @@ import './Cart.scss';
 
 function Cart() {
   const navigate = useNavigate();
+  const accessToken = localStorage.getItem('token');
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
 
   useEffect(() => {
     fetch('/data/cart.json', {
       headers: {
-        authorization: '',
+        authorization: accessToken,
       },
     })
       .then(response => {
@@ -50,8 +51,7 @@ function Cart() {
     fetch(`http://172.20.10.6:3000/cart?${checkedQueryString()}`, {
       method: 'DELETE',
       headers: {
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQyNzQ1MTl9.c4sn6zL4HKrFHYxFdYD2Ao1bCyFTTSJIRxIpf5igSX8',
+        authorization: accessToken,
       },
     })
       .then(response => {
