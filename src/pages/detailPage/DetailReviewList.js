@@ -36,12 +36,6 @@ function DetailReviewList({ listContent }) {
   const day = ('0' + date.getDate()).slice(-2);
   const dateStr = year + '-' + month + '-' + day;
 
-  // const orderedDate = dateStr.sort(
-  //   (a, b) => new Date(a.dateStr) - new Date(b.dateStr)
-  // );
-
-  // console.log('orderedDate:', orderedDate);
-
   return (
     <div>
       {listContent.map((item, key) => {

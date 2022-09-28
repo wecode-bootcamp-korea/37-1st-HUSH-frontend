@@ -11,7 +11,7 @@ function DetailPrdReview() {
     setModal(!modal);
   };
 
-  const test = e => {
+  const onChange = e => {
     setTextArea(e.target.value);
   };
 
@@ -44,7 +44,7 @@ function DetailPrdReview() {
                   id="content"
                   name="content"
                   value={textArea}
-                  onChange={test}
+                  onChange={onChange}
                   placeholder="후기 내용을 작성해주세요.
 특수문자(<, >, |, = , &lt, &gt 등) 입력은 불가능합니다."
                   required
@@ -62,7 +62,11 @@ function DetailPrdReview() {
       )}
       <div className="review-list-content">
         <ul className="review-list-cont">
-          <DetailReviewList listContent={listContent} />
+          {listContent.length > 0 ? (
+            <DetailReviewList listContent={listContent} />
+          ) : (
+            <li className="none">등록된 후기가 없습니다.</li>
+          )}
         </ul>
       </div>
     </div>

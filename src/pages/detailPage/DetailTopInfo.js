@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 
-function DetailTopInfo({
-  id,
-  name,
-  price,
-  stock,
-  category_name,
-  thumbnail_image_url,
-}) {
+function DetailTopInfo({ name, price, stock, category_name, image_url }) {
   const [number, setNumber] = useState(1);
 
   const onIncrease = () => {
@@ -17,7 +10,6 @@ function DetailTopInfo({
 
       return;
     }
-
     setNumber(number + 1);
   };
 
@@ -41,15 +33,11 @@ function DetailTopInfo({
   return (
     <>
       <div className="detail-prd-img">
-        <span>
-          <img src={thumbnail_image_url} alt="" />
-        </span>
+        <span>{/* <img src={image_url[0]} alt="" /> */}</span>
       </div>
       <div className="detail-prd-info">
         <div className="thumb">
-          <span>
-            <img src={thumbnail_image_url} alt="" />
-          </span>
+          <span>{/* <img src={image_url[1]} alt="" /> */}</span>
         </div>
         <div className="detail-prd-names">
           <h2 className="prd-tit-name">{name}</h2>
@@ -59,7 +47,7 @@ function DetailTopInfo({
           <strong className="price"> ￦ {price}</strong>
           <div className="quantity-box">
             <button type="button" className="minus" onClick={onDecrease}>
-              <img src="./images/minus_ico.png" alt="-" />
+              <img src="./images/detail/minus_ico.png" alt="-" />
             </button>
             <input
               type="text"
@@ -68,7 +56,7 @@ function DetailTopInfo({
               className="quantity-num"
             />
             <button type="button" className="plus" onClick={onIncrease}>
-              <img src="./images/plus_ico.png" alt="+" />
+              <img src="./images/detail/plus_ico.png" alt="+" />
             </button>
           </div>
         </div>
@@ -78,7 +66,7 @@ function DetailTopInfo({
         </div>
         <div className="prd-button-box">
           <button type="button" className="lick-btn">
-            <img src="./images/heart.png" alt="찜 목록" />
+            <img src="./images/detail/heart.png" alt="찜 목록" />
           </button>
           <button type="button" className="basket-btn">
             장바구니
