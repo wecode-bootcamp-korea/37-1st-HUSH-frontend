@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../myPage/Cart.scss';
+import './CartProduct.scss';
 
 function CartProduct({
   id,
@@ -79,9 +79,9 @@ function CartProduct({
         </div>
       </td>
       <td className="product-content-quantity">
-        <button className="quantity-minus-btn" onClick={decreaseQuantity} />
+        <button className="quantity-btn minus-btn" onClick={decreaseQuantity} />
         <span className="quantity-count">{productQuantity}</span>
-        <button className="quantity-plus-btn" onClick={increaseQuantity} />
+        <button className="quantity-btn plus-btn" onClick={increaseQuantity} />
       </td>
       <td className="product-content-price">
         ₩ {price.toLocaleString('ko-KR')}

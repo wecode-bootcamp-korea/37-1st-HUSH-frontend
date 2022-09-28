@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CartProduct from './CartProduct';
-import '../myPage/Cart.scss';
+import './Cart.scss';
 
 function Cart() {
   const navigate = useNavigate();
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
-  const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
     fetch('/data/cart.json', {
@@ -15,7 +14,15 @@ function Cart() {
         authorization: '',
       },
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('에러 발생!');
+      })
+      .catch(error => {
+        alert(error);
+      })
       .then(data => {
         setProductData(data);
       });
@@ -47,25 +54,30 @@ function Cart() {
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NjQyNzQ1MTl9.c4sn6zL4HKrFHYxFdYD2Ao1bCyFTTSJIRxIpf5igSX8',
       },
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('에러 발생!');
+      })
+      .catch(error => {
+        alert(error);
+      })
       .then(data => {
-        console.log(data.result);
         setProductData(data.result);
       });
     setCheckedList([]);
   };
 
-  useEffect(() => {
-    let sum = 0;
-    for (let i = 0; i < productData.length; i++) {
-      for (let j = 0; j < checkedList.length; j++) {
-        if (productData[i].pId === checkedList[j]) {
-          sum += productData[i].price * productData[i].quantity;
-        }
+  let sum = 0;
+
+  for (let i = 0; i < productData.length; i++) {
+    for (let j = 0; j < checkedList.length; j++) {
+      if (productData[i].pId === checkedList[j]) {
+        sum += productData[i].price * productData[i].quantity;
       }
     }
-    setTotalSum(sum);
-  }, [checkedList]);
+  }
 
   const checkedQueryString = () => {
     let checkedProducts = '';
@@ -139,7 +151,7 @@ function Cart() {
         </li>
         <li>
           <span className="calc-title">제품합계</span>
-          <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
+          <span className="calc-sum">₩ {sum.toLocaleString('ko-KR')}</span>
         </li>
         <li className="title-wrap">
           <span className="calc-title title-shift">배송비</span>
@@ -147,7 +159,7 @@ function Cart() {
         </li>
         <li className="title-wrap">
           <span className="calc-title title-price">주문금액</span>
-          <span className="calc-sum">₩ {totalSum.toLocaleString('ko-KR')}</span>
+          <span className="calc-sum">₩ {sum.toLocaleString('ko-KR')}</span>
         </li>
       </ul>
       <div>
