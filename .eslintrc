@@ -18,6 +18,11 @@
     "react/jsx-key": "warn",
     "react/self-closing-comp": "warn",
     "react/jsx-curly-brace-presence": "warn",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
