@@ -11,10 +11,10 @@ function Product() {
   const [productLists, setProductLists] = useState([]);
   const [dropdownMenu, setDropDownMenu] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  // const offset = searchParams.get('offset');
-  // const limit = searchParams.get('limit');
-  const limit = 12;
-  const offset = 0;
+  const offset = searchParams.get('offset');
+  const limit = searchParams.get('limit');
+  // const limit = 12;
+  // const offset = 0;
 
   const movePage = pageNum => {
     searchParams.set('offset', (pageNum - 1) * 10);
@@ -39,14 +39,16 @@ function Product() {
     setProductLists(priceSorting);
   };
 
+  const accessToken = localStorage.getItem('accessToken');
+
   useEffect(() => {
     // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${3}`)
     fetch(`data/${currTab}.json`)
       // fetch(
-      //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
+      //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${0}&limit=${12}`,
       //   {
       //     headers: {
-      //      const accessToken = localStorage.getItem('token');
+      //      authorization: accessToken,
       //     },
       //   }
       // )
