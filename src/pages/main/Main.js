@@ -34,14 +34,11 @@ function Main() {
   });
 
   const handleSlider = count => {
-    //console.log(count);
-
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
 
     if (count >= sliders.length) {
       slideRef.current.style.transform = 'translateX(0)';
     } else {
-      // slideRef.current.style.transform = `translateX(-${1224 * count + 50}px)`;
       slideRef.current.style.transform = `translateX(-${count}00%)`;
     }
   };

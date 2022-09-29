@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function DetailTopInfo({ name, price, stock, category_name, image_url }) {
   const [number, setNumber] = useState(1);
@@ -47,7 +48,7 @@ function DetailTopInfo({ name, price, stock, category_name, image_url }) {
           <strong className="price"> ￦ {price}</strong>
           <div className="quantity-box">
             <button type="button" className="minus" onClick={onDecrease}>
-              <img src="./images/detail/minus_ico.png" alt="-" />
+              <img src="../images/detail/minus_ico.png" alt="-" />
             </button>
             <input
               type="text"
@@ -56,7 +57,7 @@ function DetailTopInfo({ name, price, stock, category_name, image_url }) {
               className="quantity-num"
             />
             <button type="button" className="plus" onClick={onIncrease}>
-              <img src="./images/detail/plus_ico.png" alt="+" />
+              <img src="../images/detail/plus_ico.png" alt="+" />
             </button>
           </div>
         </div>
@@ -65,12 +66,12 @@ function DetailTopInfo({ name, price, stock, category_name, image_url }) {
           <p>￦ {calculatePrice}</p>
         </div>
         <div className="prd-button-box">
-          <button type="button" className="lick-btn">
-            <img src="./images/detail/heart.png" alt="찜 목록" />
-          </button>
-          <button type="button" className="basket-btn">
+          <Link to="/like" className="lick-btn">
+            <img src="../images/detail/heart.png" alt="찜 목록" />
+          </Link>
+          <Link to="/cart" className="basket-btn">
             장바구니
-          </button>
+          </Link>
         </div>
       </div>
     </>

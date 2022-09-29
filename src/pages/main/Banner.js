@@ -4,8 +4,8 @@ import './Banner.scss';
 
 function Banner() {
   const animatedItem = {
-    0: useScrollFadeIn('up', 1, 1.5),
-    1: useScrollFadeIn('up', 1, 0),
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
   };
 
   return (
@@ -27,8 +27,11 @@ function Banner() {
           </div>
           <div className="banner-txt">
             <h2>젤리</h2>
-            <p>식사는 없어 배고파도 음료는 없어 </p>
-            <p>목말라도 달콤한 맛만 디저트만 만 원하게 될 거 알잖아</p>
+            <p>내가 만든 쿠키 Come and take a lookie</p>
+            <p>
+              우리 집에만 있지 놀러 와 얼마든지 굽지 그런데 너 충치 생겨도 난
+              몰라
+            </p>
           </div>
         </div>
       </div>

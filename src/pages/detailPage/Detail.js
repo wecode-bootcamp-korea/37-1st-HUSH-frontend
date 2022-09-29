@@ -22,7 +22,8 @@ function Detail() {
   //   fetch(`http://192.168.87.223:3001/products/showproduct/${userId}`, {
   //     method: 'GET',
   //     headers: {
-  //       const accessToken = localStorage.getItem('token');
+  //       authorization:
+  //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJpYXQiOjE2NjQwMDk3ODR9.nvQGE9HLe8n-JCgqqRk3O-2dGEujzQhWIgm0WyCKN60',
   //     },
   //   })
   //     .then(res => res.json())
@@ -38,10 +39,6 @@ function Detail() {
         setPrdData(data);
       });
   }, [userId]);
-
-  // let test = [];
-  // test.push(prdData.image_url);
-  // console.log(test);
 
   // useEffect(()=>{
   //   fetch(api주소,{

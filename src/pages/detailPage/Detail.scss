@@ -127,11 +127,14 @@
       .prd-button-box {
         display: flex;
 
-        button {
+        a {
           height: 70px;
+          line-height: 70px;
+          font-size: 18px;
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
           border: 1px solid #000;
-
-          cursor: pointer;
 
           &.lick-btn {
             width: 70px;
@@ -146,8 +149,6 @@
 
           &.basket-btn {
             width: calc(100% - 78px);
-            font-size: 18px;
-            color: #fff;
             background: #000;
           }
         }
