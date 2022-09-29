@@ -1,7 +1,7 @@
 [
   {
     "pId": 11,
-    "cName": "초콜릿",
+    "cateName": "초콜릿",
     "pName": "미니쉘",
     "price": 2500,
     "quantity": 2,
@@ -12,7 +12,7 @@
   },
   {
     "pId": 22,
-    "cName": "초콜릿",
+    "cateName": "초콜릿",
     "pName": "리얼100퍼센트",
     "price": 3000,
     "quantity": 4,
@@ -23,7 +23,7 @@
   },
   {
     "pId": 33,
-    "cName": "초콜릿",
+    "cateName": "초콜릿",
     "pName": "허쉬",
     "price": 5000,
     "quantity": 5,
