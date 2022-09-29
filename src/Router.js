@@ -27,11 +27,11 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/paypage" element={<PayPage />} />
         <Route path="/product" element={<Product />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="event" element={<Event />} />
-        <Route path="intro" element={<Intro />} />
-        <Route path="store" element={<Store />} />
-        <Route path="like" element={<Like />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/like" element={<Like />} />
       </Routes>
       <Footer />
     </BrowserRouter>
