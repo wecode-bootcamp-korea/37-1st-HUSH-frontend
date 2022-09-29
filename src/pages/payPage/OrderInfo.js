@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function OrderInfo({
   choiceMessages,
   isOrderInput,
   inputMessages,
   orderMessages,
+  address,
 }) {
   return (
     <div>
       <div className="order-info">
         <div className="order-address">
           <strong>배송지</strong>
-          <p>서울시 동작구 상도동 356-6 1층 101호</p>
-          <a href="#!">배송지 정보 변경</a>
+          <p>{address}</p>
         </div>
         <div className="order-message">
           <strong>배송메세지</strong>
