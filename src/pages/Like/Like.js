@@ -7,7 +7,7 @@ function Like() {
   const [productData, setProductData] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
 
-  useEffect(() => {
+  const getData = () => {
     fetch('http://172.20.10.4:3000/user/like', {
       headers: {
         authorization: accessToken,
@@ -25,13 +25,17 @@ function Like() {
       .then(data => {
         setProductData(data.likes);
       });
+  };
+
+  useEffect(() => {
+    getData();
   }, []);
 
-  const handleSingleChecked = e => {
-    if (e.target.checked) {
-      setCheckedList([...checkedList, Number(e.target.id)]);
-    } else if (!e.target.checked) {
-      setCheckedList(checkedList.filter(el => el !== Number(e.target.id)));
+  const handleSingleChecked = id => {
+    if (!checkedList.includes(id)) {
+      setCheckedList([...checkedList, id]);
+    } else {
+      setCheckedList(checkedList.filter(el => el !== Number(id)));
     }
   };
 
@@ -55,8 +59,16 @@ function Like() {
             authorization: accessToken,
           },
         }
-      );
-      window.location.reload();
+      )
+        .then(response => {
+          if (response.ok) {
+            getData();
+          }
+          throw new Error('에러 발생!');
+        })
+        .catch(error => {
+          alert(error);
+        });
     } else {
       alert('삭제할 상품을 선택해주세요!');
     }
@@ -94,13 +106,12 @@ function Like() {
         <tbody className="like-product-body">
           {productData.map(product => (
             <LikeProduct
-              key={product.productId}
-              id={product.productId}
+              key={product.pId}
               img={product.thumbnail_image_url}
               name={product.productName}
               category={product.categoryName}
               price={product.price}
-              handleSingleChecked={handleSingleChecked}
+              handleSingleChecked={() => handleSingleChecked(product.pId)}
               checkedList={checkedList}
             />
           ))}

@@ -1,24 +1,11 @@
 import React from 'react';
 import './LikeProduct.scss';
 
-function LikeProduct({
-  id,
-  img,
-  name,
-  category,
-  price,
-  handleSingleChecked,
-  checkedList,
-}) {
+function LikeProduct({ img, name, category, price, handleSingleChecked }) {
   return (
-    <tr className="like-product-content" id={id}>
+    <tr className="like-product-content">
       <td className="product-content-input">
-        <input
-          type="checkbox"
-          id={id}
-          checked={checkedList.includes(id)}
-          onChange={handleSingleChecked}
-        />
+        <input type="checkbox" onChange={handleSingleChecked} />
       </td>
       <td className="product-content-detail">
         <img className="content-detail-img" src={img} alt="제품 이미지" />
@@ -33,9 +20,7 @@ function LikeProduct({
       <td className="product-content-select">
         <button
           className="content-select-btn"
-          onClick={() => {
-            return alert('준비중입니다!');
-          }}
+          onClick={() => alert('준비중입니다!')}
         >
           제품보기
         </button>
