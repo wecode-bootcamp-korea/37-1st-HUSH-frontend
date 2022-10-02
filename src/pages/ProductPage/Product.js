@@ -17,7 +17,7 @@ function Product() {
   // const offset = 0;
 
   const movePage = pageNum => {
-    searchParams.set('offset', (pageNum - 1) * 10);
+    searchParams.set('offset', (pageNum - 1) * 5);
     setSearchParams(searchParams);
   };
 
@@ -42,13 +42,13 @@ function Product() {
   const accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${3}`)
+    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${12}`)
     fetch(`data/${currTab}.json`)
       // fetch(
       //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${0}&limit=${12}`,
       //   {
       //     headers: {
-      //      authorization: accessToken,
+      //       authorization: accessToken,
       //     },
       //   }
       // )
