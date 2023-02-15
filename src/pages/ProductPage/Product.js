@@ -17,7 +17,7 @@ function Product() {
   // const offset = 0;
 
   const movePage = pageNum => {
-    searchParams.set('offset', (pageNum - 1) * 5);
+    searchParams.set('offset', (pageNum - 1) * 10);
     setSearchParams(searchParams);
   };
 
@@ -42,10 +42,12 @@ function Product() {
   const accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    // fetch(`https://jsonplaceholder.typicode.com/posts?_start=${0}&_limit=${12}`)
+    // fetch(
+    //   `https://jsonplaceholder.typicode.com/posts?_start=${offset}&_limit=${12}`
+    // )
     fetch(`data/${currTab}.json`)
       // fetch(
-      //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${0}&limit=${12}`,
+      //   `http://172.20.10.4:3001/products/?category=${currTab}&offset=${offset}&limit=${limit}`,
       //   {
       //     headers: {
       //       authorization: accessToken,
@@ -63,7 +65,7 @@ function Product() {
         <img src="/images/cusCakes.jpg" alt="상품" />
         <div className="product-image-letter">
           <h2>HUSH</h2>
-          <h3>ENJOY YOUR DESSERT!</h3>
+          <h3>ENJOY YOUR DESSERT!!!!</h3>
         </div>
       </div>
 
